@@ -46,4 +46,6 @@ A task that adds calculation code is done only when its tests pass and `src/doma
 
 22. **Browser tests.** Write `e2e/smoke.spec.ts`, which runs in CI: with the clock fixed at 27 Nov 2026, load the sample and check that the four metric cards appear. Also write `e2e/performance.local.spec.ts`, which runs locally only: 5,000 issues, all four cards within 2 s (§9).
     _Done when:_ the smoke test is green in CI and the local performance run passes.
-23. **README and acceptance review.** In the README, cover how to run the tool, the CSV format and date formats, the metric rules, CI and the main-branch gate, and `npm run test:perf`. Then record evidence for each acceptance criterion in `spec.md` and fill in the remaining delivery notes.
+23. **Publish on GitHub Pages.** Added by the owner on 27 Nov 2026. Build with relative asset paths, so the app and "Load sample data" work under `/delivery-metrics-tool/`. Add a workflow that tests, builds and deploys to Pages on every push to main, and turn on Pages with GitHub Actions as the source. Put the live link at the top of the README (§11).
+    _Done when:_ the link opens the app and "Load sample data" shows the four cards.
+24. **README and acceptance review.** In the README, cover the live link, how to run the tool, the CSV format and date formats, the metric rules, CI and the main-branch gate, and `npm run test:perf`. Then record evidence for each acceptance criterion in `spec.md` and fill in the remaining delivery notes.
