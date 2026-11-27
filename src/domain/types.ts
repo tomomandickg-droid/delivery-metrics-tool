@@ -32,6 +32,14 @@ export interface SkippedRow {
   readonly reason: SkipReason;
 }
 
+/** A kept issue whose data was adjusted for a metric, listed on the dashboard. */
+export interface AdjustedIssue {
+  /** Spreadsheet row number: the header is row 1. */
+  readonly rowNumber: number;
+  /** Issue key as written; may be empty. */
+  readonly key: string;
+}
+
 /** The 12 completed Monday–Sunday weeks before the current week (plan.md §5). */
 export interface ReportingWindow {
   /** Monday of the first week. */

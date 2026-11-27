@@ -62,7 +62,7 @@ delivery-metrics-tool/
 │     ├─ App.tsx
 │     ├─ UploadArea.tsx            # drag-and-drop, file picker, "Load sample data"
 │     ├─ ErrorBanner.tsx           # missing columns, unreadable file
-│     ├─ SkippedRows.tsx           # count + issue keys of skipped rows
+│     ├─ SkippedRows.tsx           # count + issue keys of skipped rows and adjusted issues
 │     ├─ TypeFilter.tsx            # multi-select checkboxes
 │     ├─ MetricCard.tsx
 │     ├─ ThroughputChart.tsx
@@ -137,9 +137,9 @@ A row is **skipped** (decision 7) when any of these is true. Each skipped row is
 **Not** reasons to skip:
 
 - An empty `Resolved` or `Started`. That is normal: the issue is open, or not started yet.
-- `Started` earlier than `Created`. Work sometimes starts before the ticket is logged.
+- `Started` earlier than `Created`. The issue is kept, and cycle time counts from Created (§6.3). `toIssues` also returns these issues in a separate `startedBeforeCreated` list (rule changed 27 Nov 2026).
 
-The dashboard shows "N rows skipped" with the list of keys and reasons (a row with no key is shown as "row 17"). The list covers the whole file and does not change with the Issue Type filter.
+The dashboard shows "N rows skipped" with the list of keys and reasons (a row with no key is shown as "row 17"). Below it, the dashboard lists adjusted issues, e.g. "Started before Created: 1 issue, cycle time adjusted (MS-7)". Both lists cover the whole file and do not change with the Issue Type filter.
 
 ## 5. Reporting window
 
@@ -180,7 +180,7 @@ All metrics are calculated on the issues that pass the Issue Type filter (§7). 
 ### 6.3 Cycle time
 
 - Included: issues resolved in the window **that have a Started date**.
-- Per issue: `cycleTime = inclusiveDays(started, resolved)`.
+- Per issue: `cycleTime = inclusiveDays(max(started, created), resolved)`. If Started is before Created, cycle time is counted from Created, so it equals lead time.
 - Card: median, 85th percentile and n, plus a note such as "4 resolved issues have no Started date".
 
 ### 6.4 Percentiles
