@@ -13,7 +13,7 @@ npm install
 npm run dev
 ```
 
-Then open the localhost URL that is printed.
+Then open http://localhost:5173/ in a browser. Click **Load sample data** to try the tool, or drop a Jira CSV export on the page. The file is read in the browser and never leaves your computer. Stop the server with Ctrl+C.
 
 ## Checks
 
