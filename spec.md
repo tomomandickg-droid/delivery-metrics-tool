@@ -1,0 +1,96 @@
+# Delivery Metrics Tool — Specification
+
+## Problem
+Delivery managers track throughput, lead time and cycle time by hand in spreadsheets, or not at all. Jira shows the raw data but not the delivery picture a client or leadership asks for.
+
+## Users
+- Delivery Manager / Project Manager running one or more agile teams
+- Stakeholders who receive a weekly delivery report
+
+## Scope (v1)
+Input: a Jira CSV export of issues.
+Output: a local web dashboard with delivery metrics.
+
+Out of scope for v1: live Jira API connection, user accounts, multiple projects at once.
+
+## Input data
+Required CSV columns:
+- Issue key
+- Issue Type
+- Status
+- Created
+- Resolved
+- Started — date the issue first moved to "In Progress". Not a standard Jira field: in practice a Jira automation rule writes it when work starts. The sample data includes it.
+
+If a required column is missing, the tool shows a clear error naming the column.
+
+Supported date formats (in Created, Resolved and Started):
+- Jira's default export format, e.g. `27/Nov/26 10:15 AM`
+- ISO, e.g. `2026-11-27`
+- Day.month.year, e.g. `27.11.2026`
+
+Rows with an invalid date are skipped. Impossible date order also counts as invalid: Resolved before Created, or Started after Resolved. A row that repeats an earlier issue key is skipped too. The dashboard shows how many rows were skipped and lists their issue keys.
+
+The "Load sample data" button moves the sample's dates forward by whole weeks so that the sample always falls inside the reporting window. A file uploaded by hand always uses its real dates.
+
+## Reporting window
+Throughput, lead time and cycle time use a **12-week window**. Weeks run Monday to Sunday. The window ends with the last completed week. The current week is not finished yet, so it is excluded.
+
+## Metrics
+**Done** means the issue has a Resolved date.
+
+1. **Throughput**: number of issues resolved per week in the window. The card shows the average per week over the 12 weeks.
+2. **Lead time**: days from Created to Resolved, per issue, for issues resolved in the window. Show the median and the 85th percentile.
+3. **Cycle time**: days from Started to Resolved, for issues resolved in the window. Show the median and the 85th percentile.
+4. **Work in progress**: issues with a Started date and no Resolved date, grouped by status. Backlog items (no Started date, no Resolved date) are not work in progress.
+
+Issues without a Resolved date are excluded from throughput, lead time and cycle time.
+Issues without a Started date are excluded from cycle time and from work in progress.
+
+Percentiles (including the median) are calculated the same way as Excel `PERCENTILE.INC`.
+
+All durations are in **calendar days**, counted inclusively: both the start day and the end day count. An issue created and resolved on the same day has a lead time of 1 day; created 1 Nov and resolved 6 Nov is 6 days.
+
+## Dashboard
+- Upload area for the CSV
+- Four metric cards (one per metric above)
+- Chart: throughput per week (the 12-week window)
+- Chart: lead time distribution
+- Filter by Issue Type; several types can be selected at once
+- List of skipped rows (count and issue keys)
+
+## Acceptance criteria
+- [ ] Uploading a valid CSV shows all four metrics within 2 seconds for up to 5,000 issues (checked locally, not in CI)
+- [ ] Uploading a CSV with a missing column shows an error naming that column
+- [ ] Lead time and cycle time values match a manual calculation on the sample data
+- [ ] Filtering by one or more Issue Types updates all metrics and charts
+- [ ] Rows with invalid dates are skipped, and the dashboard shows their count and issue keys
+- [ ] Sample data file is included so anyone can try the tool
+
+## Quality gates
+- Automated tests for every metric calculation; 100% test coverage of the calculation code
+- On every push, GitHub Actions runs: lint, type checks, unit tests, the build, and one smoke browser test (load the sample file and check that the four metric cards appear)
+- A failing check blocks merge to main
+- The 5,000-issue performance check runs locally only, not in CI
+
+## Delivery notes (to be filled in while building)
+- Spec v1 assumed "Status category changed" gives the start of work. It holds the date of the last category change, so for done issues it equals the resolution date. Replaced with a "Started" column.
+- Spec v1 did not say calendar or working days. Decided: calendar days. Counted inclusively, so the minimum is 1 day (no 0-day items).
+- Plan review, 27 Nov 2026. Decisions on the open questions:
+  - Window: the 12 weeks end with the last completed week. The current partial week is excluded.
+  - Weeks run Monday to Sunday.
+  - Throughput card: average issues resolved per week over the 12-week window.
+  - Percentiles: Excel `PERCENTILE.INC` method, so a manual check in a spreadsheet gives the same numbers.
+  - Done = has a Resolved date (replaces "not Done" by status name). WIP = has a Started date and no Resolved date. Backlog items are not WIP.
+  - Lead time and cycle time use only issues resolved in the same 12-week window (spec v1 did not limit them).
+  - Rows with invalid dates are skipped. The dashboard shows the count and their issue keys.
+  - The Issue Type filter allows several types at once (v1 did not say).
+  - Date formats supported: Jira default (`27/Nov/26 10:15 AM`), ISO (`2026-11-27`) and `27.11.2026`.
+- Plan approved, 27 Nov 2026:
+  - Because the window ties to today's date, the fixed sample would show no data after about three months. Decided: "Load sample data" shifts all dates forward by whole weeks, which keeps weekdays, durations and the hand-checked numbers unchanged.
+  - Impossible date order (Resolved before Created, Started after Resolved) counts as an invalid date, so the row is skipped. Rows that repeat an earlier issue key are also skipped and listed.
+- Setup, 27 Nov 2026: Git, Node.js and GitHub CLI were not installed on the build machine and were installed with winget. The current Node LTS is 26, not 22 as planned, so the project uses Node 26.
+- Scope change, 27 Nov 2026: CI runs lint, type checks, unit tests, build and one smoke browser test. The 5,000-issue performance check moved out of CI and runs locally only. 100% test coverage of the calculation code is kept.
+- Where the AI got it wrong, and why
+- What had to be changed in this spec after the first build
+- Time spent per step
