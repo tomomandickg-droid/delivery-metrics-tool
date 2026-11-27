@@ -1,0 +1,306 @@
+Summary,Issue key,Issue Type,Status,Priority,Assignee,Created,Resolved,Sprint,Sprint,Custom field (Started)
+Add onboarding flow,DMT-300,Task,To Do,Medium,Ana Kovač,26.11.2026.,,,,
+Add report builder,DMT-299,Bug,In Progress,Medium,Ben Okafor,25/Nov/26 1:59 PM,,DMT Sprint 12,,27/Nov/26 5:07 PM
+Refactor audit log,DMT-298,Bug,Done,Medium,Grace Liu,24/Nov/26 3:19 PM,26/Nov/26 2:43 PM,DMT Sprint 11,,2026-11-24 15:23
+Add email templates,DMT-297,Task,Done,Medium,Elif Yılmaz,24.11.2026. 17:36,27/Nov/26 9:36 AM,DMT Sprint 11,DMT Sprint 12,2026-11-25 09:35
+"Refactor notifications, phase 4",DMT-296,Bug,Done,High,Elif Yılmaz,22/Nov/26 5:07 PM,26/Nov/26 12:51 PM,DMT Sprint 11,,2026-11-25
+Fix billing page,DMT-295,Task,Done,Medium,Ben Okafor,21/Nov/26 10:29 AM,26/Nov/26 1:13 PM,DMT Sprint 11,,18/Nov/26 6:00 PM
+Add onboarding flow,DMT-294,Bug,To Do,Low,Finn Larsen,20/Nov/26 8:13 AM,,,,
+"Add mobile layout (""Next"" button)",DMT-293,Bug,Done,Medium,Elif Yılmaz,18/Nov/26 12:15 PM,19/Nov/26 4:36 PM,DMT Sprint 11,,18/Nov/26 8:05 AM
+Improve invoice export,DMT-292,Story,In Progress,Medium,Elif Yılmaz,17/Nov/26 4:24 PM,,DMT Sprint 12,,27/Nov/26 3:50 PM
+Improve API rate limits,DMT-291,Story,In Review,Medium,Finn Larsen,16/Nov/26 9:01 AM,,DMT Sprint 11,DMT Sprint 12,16/Nov/26 4:44 PM
+Improve mobile layout,DMT-290,Story,Done,High,Ben Okafor,16/Nov/26 3:27 PM,22/Nov/26 6:24 PM,DMT Sprint 11,,21/Nov/26 9:13 AM
+Refactor invoice export,DMT-289,Bug,In Review,Low,Ben Okafor,16/Nov/26 10:43 AM,,DMT Sprint 11,DMT Sprint 12,26/Nov/26 5:07 PM
+Speed up dashboard widgets,DMT-288,Task,Done,Medium,Dario Rossi,15/Nov/26 5:44 PM,20.11.2026,DMT Sprint 11,,2026-11-20
+"Add CSV import (""Next"" button)",DMT-287,Story,To Do,Medium,Dario Rossi,15/Nov/26 5:54 PM,,,,
+"Refactor search filters, phase 3",DMT-286,Story,In Progress,High,Finn Larsen,15/Nov/26 11:54 AM,,DMT Sprint 11,DMT Sprint 12,18/Nov/26 2:30 PM
+Add CSV import,DMT-285,Story,Done,Low,Hiro Tanaka,15/Nov/26 8:54 AM,2026-11-17,DMT Sprint 11,,16/Nov/26 12:33 PM
+Update login page,DMT-284,Bug,Done,Highest,Ana Kovač,15/Nov/26 3:31 PM,18.11.2026,DMT Sprint 11,,17/Nov/26 6:44 PM
+Remove user settings,DMT-283,Task,To Do,High,Grace Liu,13/Nov/26 9:54 AM,,,,
+"Remove CSV import, phase 3",DMT-282,Story,Done,Medium,Dario Rossi,12/Nov/26 3:11 PM,19/Nov/26 5:22 PM,DMT Sprint 11,,15/Nov/26 3:42 PM
+Improve report builder,DMT-281,Bug,To Do,Highest,Finn Larsen,12/Nov/26 9:55 AM,,,,
+Update CSV import,DMT-280,Story,Done,High,Dario Rossi,12/Nov/26 11:58 AM,14/Nov/26 12:39 PM,DMT Sprint 11,,14.11.2026.
+Add report builder,DMT-279,Task,To Do,High,,11.11.2026.,,,,
+"Improve audit log (""Save"" button)",DMT-278,Bug,To Do,High,,11/Nov/26 2:56 PM,,,,
+"Add onboarding flow, phase 2",DMT-277,Story,To Do,Medium,Chloé Martin,10/Nov/26 9:12 AM,,,,
+"Fix password reset (""Next"" button)",DMT-276,Task,Done,Low,Elif Yılmaz,10/Nov/26 1:15 PM,18/Nov/26 2:47 PM,DMT Sprint 11,,15/Nov/26 2:26 PM
+Validate billing page,DMT-275,Story,In Progress,High,Elif Yılmaz,10.11.2026 08:39,,DMT Sprint 11,DMT Sprint 12,17/Nov/26 11:02 AM
+Update login page,DMT-274,Story,Done,Low,Hiro Tanaka,10/Nov/26 8:32 AM,22/Nov/26 4:37 PM,DMT Sprint 11,,15/Nov/26 4:19 PM
+Improve billing page,DMT-273,Story,In Progress,Medium,Elif Yılmaz,09.11.2026,,DMT Sprint 11,DMT Sprint 12,2026-11-23 17:08
+Update email templates,DMT-272,Task,Done,Medium,Grace Liu,09/Nov/26 4:35 PM,23/Nov/26 9:44 AM,DMT Sprint 11,,16/Nov/26 8:12 AM
+Refactor dashboard widgets,DMT-271,Bug,To Do,High,Grace Liu,09/Nov/26 8:34 AM,,,,
+Speed up audit log,DMT-270,Bug,To Do,Medium,,08/Nov/26 4:31 PM,,,,
+Fix CSV import,DMT-269,Story,Done,Highest,Grace Liu,08/Nov/26 11:19 AM,2026-11-13 12:43,DMT Sprint 10,DMT Sprint 11,07/Nov/26 4:15 PM
+Validate search filters,DMT-268,Story,To Do,Low,Ana Kovač,08/Nov/26 3:13 PM,,,,
+Validate billing page,DMT-267,Bug,Done,High,Elif Yılmaz,07.11.2026.,13/Nov/26 5:16 PM,DMT Sprint 10,DMT Sprint 11,10/Nov/26 10:53 AM
+"Improve invoice export, phase 4",DMT-266,Story,Done,Medium,Finn Larsen,07/Nov/26 6:45 PM,14/Nov/26 6:17 PM,DMT Sprint 10,DMT Sprint 11,10.11.2026 14:39
+Translate settings page,DMT-304,Story,In Progress,Medium,Finn Larsen,2026-11-16,,,,n/a
+Remove report builder,DMT-265,Bug,To Do,High,,06/Nov/26 1:28 PM,,,,
+Refactor dashboard widgets,DMT-264,Story,Done,High,Hiro Tanaka,06/Nov/26 12:19 PM,09/Nov/26 6:06 PM,DMT Sprint 10,,08/Nov/26 2:15 PM
+"Validate email templates, phase 2",DMT-263,Story,Done,Medium,Ben Okafor,06/Nov/26 8:36 AM,09/Nov/26 1:16 PM,DMT Sprint 10,,06/Nov/26 11:25 AM
+Speed up password reset,DMT-262,Bug,Done,Medium,Grace Liu,2026-11-05 18:28,2026-11-16 18:55,DMT Sprint 10,DMT Sprint 11,2026-11-05 16:06
+Speed up audit log,DMT-261,Bug,Done,Medium,Ana Kovač,05.11.2026 10:13,05/Nov/26 4:34 PM,DMT Sprint 10,,05/Nov/26 1:13 PM
+Remove CSV import,DMT-260,Task,Done,High,Hiro Tanaka,05/Nov/26 2:32 PM,2026-11-21 10:05,DMT Sprint 11,,19/Nov/26 11:53 AM
+Speed up file upload,DMT-259,Story,Done,Medium,Dario Rossi,04/Nov/26 6:49 PM,12/Nov/26 5:16 PM,DMT Sprint 10,,2026-11-05
+Validate mobile layout,DMT-258,Bug,To Do,Medium,Chloé Martin,04/Nov/26 6:47 PM,,,,
+Improve password reset,DMT-257,Bug,Done,Medium,Elif Yılmaz,04/Nov/26 3:59 PM,09/Nov/26 1:48 PM,DMT Sprint 10,,04/Nov/26 3:07 PM
+Validate report builder,DMT-256,Bug,Done,Medium,Finn Larsen,2026-11-03,05.11.2026. 15:16,DMT Sprint 10,,03/Nov/26 3:16 PM
+Speed up billing page,DMT-255,Bug,Done,Medium,Hiro Tanaka,02.11.2026.,08.11.2026,DMT Sprint 10,,04/Nov/26 1:20 PM
+Update search filters,DMT-254,Bug,To Do,High,Finn Larsen,02/Nov/26 1:10 PM,,,,
+Refactor report builder,DMT-253,Bug,Done,High,Ana Kovač,02/Nov/26 10:50 AM,2026-11-06 17:19,DMT Sprint 10,,02/Nov/26 9:05 AM
+Validate password reset,DMT-252,Story,Closed,Low,Grace Liu,01/Nov/26 2:00 PM,05/Nov/26 10:56 AM,DMT Sprint 10,,02/Nov/26 6:40 PM
+Remove email templates,DMT-251,Task,Done,Medium,Grace Liu,01/Nov/26 11:51 AM,2026-11-05,DMT Sprint 10,,03/Nov/26 8:33 AM
+Fix user settings,DMT-250,Story,Done,Medium,Finn Larsen,01/Nov/26 3:51 PM,2026-11-03 16:22,DMT Sprint 10,,2026-11-01 15:58
+Speed up CSV import,DMT-249,Story,Done,High,Elif Yılmaz,31/Oct/26 2:24 PM,10/Nov/26 10:11 AM,DMT Sprint 10,,01/Nov/26 4:31 PM
+Remove audit log,DMT-248,Bug,Done,Medium,Hiro Tanaka,31/Oct/26 12:53 PM,08/Nov/26 3:38 PM,DMT Sprint 10,,02/Nov/26 10:56 AM
+Speed up CSV import,DMT-247,Story,Done,High,Grace Liu,31/Oct/26 8:29 AM,04/Nov/26 4:50 PM,DMT Sprint 10,,2026-11-01 11:36
+Improve file upload,DMT-246,Story,Done,Medium,Dario Rossi,31/Oct/26 9:36 AM,04/Nov/26 3:12 PM,DMT Sprint 10,,2026-11-02 15:46
+Fix email templates,DMT-245,Story,To Do,High,Finn Larsen,31/Oct/26 10:05 AM,,,,
+Add invoice export,DMT-244,Bug,To Do,Low,,2026-10-31,,,,
+Improve API rate limits,DMT-243,Story,Done,Low,Ana Kovač,30/Oct/26 8:28 AM,02/Nov/26 11:43 AM,DMT Sprint 10,,30/Oct/26 8:21 AM
+Refactor notifications,DMT-242,Story,Done,High,Grace Liu,2026-10-30,09/Nov/26 3:21 PM,DMT Sprint 10,,06/Nov/26 6:21 PM
+Validate onboarding flow,DMT-241,Story,Done,High,Chloé Martin,30/Oct/26 1:25 PM,31.10.2026.,DMT Sprint 10,,30/Oct/26 5:40 PM
+Refactor onboarding flow,DMT-240,Story,Done,High,Finn Larsen,30/Oct/26 4:10 PM,12/Nov/26 9:15 AM,DMT Sprint 10,,06/Nov/26 3:32 PM
+Fix report builder,DMT-239,Story,Done,High,Grace Liu,30/Oct/26 8:00 AM,09/Nov/26 4:18 PM,DMT Sprint 10,,31.10.2026
+Validate dashboard widgets,DMT-238,Story,Done,Medium,Finn Larsen,30/Oct/26 3:43 PM,15.11.2026.,,,
+Improve search filters,DMT-237,Bug,Done,Low,Dario Rossi,29/Oct/26 5:05 PM,03/Nov/26 3:08 PM,DMT Sprint 10,,01/Nov/26 10:12 AM
+Validate mobile layout,DMT-236,Story,Done,Low,Dario Rossi,29/Oct/26 10:25 AM,01/Nov/26 10:13 AM,DMT Sprint 9,DMT Sprint 10,2026-10-29
+Add dashboard widgets,DMT-235,Bug,To Do,High,,29/Oct/26 1:43 PM,,,,
+Speed up search filters,DMT-234,Task,To Do,Medium,,28/Oct/26 9:03 AM,,,,
+Refactor onboarding flow,DMT-233,Bug,Closed,High,Chloé Martin,2026-10-28 12:19,03/Nov/26 6:50 PM,DMT Sprint 10,,2026-10-31 13:05
+Remove report builder,DMT-232,Bug,Done,Low,Ben Okafor,27.10.2026,01/Nov/26 5:50 PM,DMT Sprint 10,,30/Oct/26 5:36 PM
+Speed up audit log,DMT-231,Bug,Done,Medium,Elif Yılmaz,25/Oct/26 2:10 PM,25/Oct/26 5:01 PM,DMT Sprint 9,,2026-10-25 13:59
+Improve invoice export,DMT-230,Story,Done,Medium,Ana Kovač,25/Oct/26 11:23 AM,08/Nov/26 10:28 AM,DMT Sprint 9,DMT Sprint 10,28/Oct/26 4:38 PM
+"Fix report builder (""Next"" button)",DMT-229,Task,Done,Medium,Ana Kovač,2026-10-24 18:56,03/Nov/26 10:34 AM,DMT Sprint 10,,31/Oct/26 3:22 PM
+Fix user settings,DMT-228,Story,Done,Medium,Dario Rossi,24/Oct/26 8:43 AM,31/Oct/26 11:35 AM,DMT Sprint 9,DMT Sprint 10,2026-10-29
+Add email templates,DMT-227,Story,To Do,Low,,24/Oct/26 10:44 AM,,,,
+Improve login page,DMT-226,Story,Done,Medium,Elif Yılmaz,23/Oct/26 8:44 AM,2026-11-03,DMT Sprint 10,,30/Oct/26 9:14 AM
+Refactor search filters,DMT-225,Story,Done,High,Elif Yılmaz,23/Oct/26 10:48 AM,2026-11-10 09:24,DMT Sprint 9,DMT Sprint 10,25/Oct/26 11:45 AM
+Refactor file upload,DMT-224,Story,Done,Medium,Elif Yılmaz,22.10.2026,28/Oct/26 5:54 PM,DMT Sprint 9,,23/Oct/26 2:54 PM
+"Improve CSV import, phase 2",DMT-223,Story,Done,Medium,Finn Larsen,21/Oct/26 8:36 AM,24/Oct/26 1:39 PM,DMT Sprint 9,,2026-10-24
+Update dashboard widgets,DMT-222,Task,Done,Medium,Ben Okafor,21/Oct/26 9:58 AM,25/Oct/26 5:20 PM,DMT Sprint 9,,21/Oct/26 3:07 PM
+Speed up invoice export,DMT-221,Bug,To Do,Medium,,20/Oct/26 1:55 PM,,,,
+Refactor CSV import,DMT-220,Story,Done,Medium,Ben Okafor,20/Oct/26 3:14 PM,31/Oct/26 3:24 PM,DMT Sprint 9,DMT Sprint 10,20/Oct/26 6:49 PM
+Update search filters,DMT-219,Story,Done,High,Hiro Tanaka,19/Oct/26 2:51 PM,28/Oct/26 8:32 AM,DMT Sprint 9,,2026-10-22 08:15
+Remove CSV import,DMT-218,Story,Done,High,Finn Larsen,19/Oct/26 9:31 AM,30/Oct/26 3:29 PM,DMT Sprint 9,DMT Sprint 10,21.10.2026. 16:56
+Fix onboarding flow,DMT-217,Bug,Closed,Low,Finn Larsen,18/Oct/26 12:15 PM,02/Nov/26 2:49 PM,DMT Sprint 10,,01/Nov/26 1:40 PM
+Improve password reset,DMT-216,Task,Done,Medium,Elif Yılmaz,18/Oct/26 4:58 PM,02/Nov/26 3:20 PM,DMT Sprint 9,DMT Sprint 10,28/Oct/26 5:34 PM
+Refactor CSV import,DMT-215,Story,Done,Medium,Finn Larsen,18/Oct/26 10:50 AM,18/Oct/26 8:33 AM,DMT Sprint 9,,18/Oct/26 8:01 AM
+Speed up billing page,DMT-214,Bug,Done,Low,Grace Liu,18/Oct/26 2:43 PM,07/Nov/26 1:41 PM,DMT Sprint 9,DMT Sprint 10,25/Oct/26 11:01 AM
+Fix file upload,DMT-213,Story,Done,High,Elif Yılmaz,17/Oct/26 1:01 PM,08/Nov/26 1:07 PM,DMT Sprint 10,,31.10.2026. 10:10
+Fix file upload,DMT-212,Story,To Do,High,,16/Oct/26 6:50 PM,,,,
+Remove report builder,DMT-211,Bug,Done,Medium,Ben Okafor,16/Oct/26 5:41 PM,2026-10-18 18:40,DMT Sprint 9,,17/Oct/26 12:47 PM
+Improve report builder,DMT-210,Bug,Done,Medium,Elif Yılmaz,2026-10-16,24/Nov/26 5:02 PM,DMT Sprint 9,DMT Sprint 11,2026-10-21 09:42
+Validate billing page,DMT-209,Bug,To Do,Highest,,15/Oct/26 3:18 PM,,,,
+Speed up audit log,DMT-208,Story,Done,Medium,Grace Liu,15/Oct/26 1:01 PM,22.10.2026,DMT Sprint 9,,20/Oct/26 1:44 PM
+Update mobile layout,DMT-207,Story,Done,High,Ana Kovač,15/Oct/26 3:04 PM,29.10.2026,DMT Sprint 9,,2026-10-25
+Remove audit log,DMT-206,Story,Closed,High,Dario Rossi,15/Oct/26 1:02 PM,18/Nov/26 5:53 PM,DMT Sprint 9,DMT Sprint 11,29/Oct/26 5:20 PM
+Remove login page,DMT-205,Story,Done,Medium,Finn Larsen,14/Oct/26 9:38 AM,2026-10-20,DMT Sprint 8,DMT Sprint 9,2026-10-15
+Update dashboard widgets,DMT-204,Story,Closed,Medium,Ben Okafor,14/Oct/26 1:40 PM,2026-10-28 11:15,DMT Sprint 9,,24.10.2026. 08:56
+Add audit log,DMT-203,Bug,Done,High,Ben Okafor,14/Oct/26 12:21 PM,2026-10-19,DMT Sprint 8,DMT Sprint 9,14/Oct/26 5:18 PM
+Fix audit log,DMT-202,Story,Done,High,Elif Yılmaz,13/Oct/26 6:54 PM,17/Oct/26 8:07 AM,DMT Sprint 8,DMT Sprint 9,13/Oct/26 10:33 AM
+Improve login page,DMT-201,Bug,Done,Medium,Grace Liu,12/Oct/26 2:53 PM,16/Oct/26 12:41 PM,DMT Sprint 8,DMT Sprint 9,13/Oct/26 1:55 PM
+Add audit log,DMT-200,Story,Done,High,Elif Yılmaz,11/Oct/26 9:41 AM,15/Oct/26 11:30 AM,DMT Sprint 8,,13/Oct/26 8:14 AM
+Speed up password reset,DMT-199,Bug,Closed,High,Elif Yılmaz,11/Oct/26 1:13 PM,27.10.2026. 11:12,DMT Sprint 9,,2026-10-25
+Speed up mobile layout,DMT-198,Story,Done,Low,Ben Okafor,10/Oct/26 12:32 PM,15/Oct/26 12:14 PM,DMT Sprint 8,,10/Oct/26 8:33 AM
+Speed up search filters,DMT-197,Story,Done,Low,Ana Kovač,10/Oct/26 2:02 PM,07/Nov/26 5:57 PM,DMT Sprint 10,,31/Oct/26 10:17 AM
+Validate invoice export,DMT-196,Bug,Done,Highest,Grace Liu,09/Oct/26 12:54 PM,13/Oct/26 11:57 AM,DMT Sprint 8,,09.10.2026 08:21
+Validate email templates,DMT-195,Story,Done,Medium,Grace Liu,09/Oct/26 12:53 PM,18/Oct/26 4:05 PM,DMT Sprint 8,DMT Sprint 9,2026-10-10 16:12
+Validate invoice export,DMT-194,Task,Done,Medium,Ana Kovač,09/Oct/26 9:02 AM,11/Oct/26 2:05 PM,,,
+Validate file upload,DMT-193,Story,Closed,High,Ben Okafor,2026-10-09,13/Oct/26 12:51 PM,DMT Sprint 8,,11/Oct/26 8:50 AM
+Improve audit log,DMT-192,Story,Done,Medium,Grace Liu,07/Oct/26 2:47 PM,10/Oct/26 11:47 AM,DMT Sprint 8,,08/Oct/26 2:43 PM
+Fix password reset,DMT-191,Story,Done,High,Ben Okafor,2026-10-07 16:53,25/Oct/26 11:01 AM,DMT Sprint 9,,2026-10-17
+"Remove password reset, phase 3",DMT-190,Task,Done,Medium,Grace Liu,06.10.2026.,14/Oct/26 5:17 PM,DMT Sprint 8,,11/Oct/26 10:12 AM
+Fix password reset,DMT-189,Story,To Do,Low,,06/Oct/26 4:49 PM,,,,
+Validate CSV import,DMT-188,Task,Done,Medium,Finn Larsen,06/Oct/26 12:45 PM,22/Oct/26 12:29 PM,DMT Sprint 9,,20/Oct/26 4:11 PM
+Speed up billing page,DMT-187,Story,Done,Low,Chloé Martin,06/Oct/26 8:23 AM,10/Oct/26 11:59 AM,DMT Sprint 8,,08.10.2026.
+Update API rate limits,DMT-186,Bug,Done,High,Chloé Martin,05/Oct/26 6:53 PM,2026-10-05,DMT Sprint 8,,05/Oct/26 4:32 PM
+Improve mobile layout,DMT-185,Bug,Done,High,Ana Kovač,2026-10-05,08/Oct/26 3:19 PM,DMT Sprint 8,,2026-10-06 18:45
+Update user settings,DMT-184,Story,Done,Medium,Ben Okafor,04/Oct/26 9:27 AM,14/Oct/26 5:00 PM,DMT Sprint 8,,06/Oct/26 10:58 AM
+Add dashboard widgets,DMT-183,Story,Done,Medium,Finn Larsen,03/Oct/26 10:21 AM,11/Oct/26 4:02 PM,DMT Sprint 8,,05/Oct/26 1:49 PM
+"Validate notifications, phase 4",DMT-182,Story,Done,Medium,Grace Liu,03/Oct/26 1:41 PM,12/Oct/26 6:00 PM,DMT Sprint 8,,08/Oct/26 8:13 AM
+"Update API rate limits (""Save"" button)",DMT-181,Bug,Done,Low,Finn Larsen,02/Oct/26 4:23 PM,08/Oct/26 5:32 PM,DMT Sprint 8,,05/Oct/26 10:45 AM
+Update audit log,DMT-180,Bug,Done,Medium,Finn Larsen,30/Sep/26 12:49 PM,10/Oct/26 12:04 PM,DMT Sprint 7,DMT Sprint 8,01/Oct/26 12:51 PM
+Add report builder,DMT-179,Story,Done,High,Ana Kovač,29/Sep/26 3:30 PM,09/Oct/26 4:48 PM,DMT Sprint 8,,06/Oct/26 12:45 PM
+Improve login page,DMT-178,Story,To Do,Medium,Hiro Tanaka,29/Sep/26 11:41 AM,,,,
+Refactor CSV import,DMT-177,Task,Done,High,Elif Yılmaz,29/Sep/26 3:23 PM,15/Oct/26 4:33 PM,DMT Sprint 8,,06/Oct/26 2:24 PM
+Remove API rate limits,DMT-176,Task,Done,Medium,Finn Larsen,29/Sep/26 10:22 AM,17/Oct/26 6:41 PM,DMT Sprint 8,DMT Sprint 9,2026-10-06 13:52
+Remove notifications,DMT-175,Story,Done,Medium,Ana Kovač,28/Sep/26 2:05 PM,30/Sep/26 10:58 AM,DMT Sprint 7,,30/Sep/26 10:32 AM
+"Validate dashboard widgets, phase 3",DMT-174,Bug,To Do,Medium,,26/Sep/26 4:54 PM,,,,
+"Validate billing page, phase 2",DMT-173,Bug,Done,Medium,Grace Liu,26/Sep/26 9:48 AM,2026-09-27 12:54,DMT Sprint 7,,26/Sep/26 5:56 PM
+Improve user settings,DMT-172,Story,Done,Low,Ben Okafor,25/Sep/26 2:48 PM,27/Sep/26 10:47 AM,DMT Sprint 7,,25/Sep/26 6:23 PM
+Remove invoice export,DMT-171,Story,Done,Medium,Chloé Martin,25.09.2026 11:49,18/Oct/26 6:54 PM,DMT Sprint 7,DMT Sprint 9,28/Sep/26 2:50 PM
+Update notifications,DMT-170,Bug,Done,Medium,Ana Kovač,24/Sep/26 10:27 AM,10/Oct/26 11:05 AM,DMT Sprint 8,,08/Oct/26 11:57 AM
+Fix API rate limits,DMT-169,Story,Done,Medium,Ana Kovač,23/Sep/26 1:13 PM,25/Sep/26 1:02 PM,DMT Sprint 7,,25/Sep/26 1:57 PM
+Refactor CSV import,DMT-168,Task,Done,High,Ben Okafor,22.09.2026,26/Sep/26 4:05 PM,DMT Sprint 7,,22/Sep/26 10:10 AM
+Update password reset,DMT-167,Story,Closed,High,Finn Larsen,2026-09-22 18:15,13/Oct/26 5:01 PM,DMT Sprint 7,DMT Sprint 8,23/Sep/26 8:05 AM
+Speed up invoice export,DMT-166,Bug,To Do,High,,22/Sep/26 9:34 AM,,,,
+"Improve dashboard widgets (""Save"" button)",DMT-165,Task,Done,High,Elif Yılmaz,21/Sep/26 12:45 PM,23/Sep/26 6:06 PM,DMT Sprint 7,,23/Sep/26 11:59 AM
+"Remove login page, phase 2",DMT-164,Task,Closed,Medium,Grace Liu,19/Sep/26 2:44 PM,2026-10-26,DMT Sprint 7,DMT Sprint 9,29/Sep/26 6:41 PM
+Add login page,DMT-163,Story,Done,Medium,Chloé Martin,2026-09-19,28/Sep/26 12:56 PM,DMT Sprint 7,,24/Sep/26 11:06 AM
+Update mobile layout,DMT-162,Task,Done,Low,Ben Okafor,2026-09-19,19/Sep/26 10:36 AM,DMT Sprint 7,,19/Sep/26 12:49 PM
+"Improve file upload, phase 4",DMT-161,Bug,Done,Low,Ana Kovač,18/Sep/26 12:04 PM,2026-09-23,DMT Sprint 7,,2026-09-18
+Validate file upload,DMT-160,Task,Done,Medium,Hiro Tanaka,18/Sep/26 1:37 PM,24/Sep/26 11:32 AM,DMT Sprint 7,,21/Sep/26 4:13 PM
+Update password reset,DMT-159,Bug,Done,High,Hiro Tanaka,17/Sep/26 12:18 PM,10/Oct/26 6:31 PM,DMT Sprint 8,,08/Oct/26 1:33 PM
+Refactor mobile layout,DMT-158,Story,Done,Low,Grace Liu,2026-09-14 15:16,23/Sep/26 10:59 AM,DMT Sprint 7,,19/Sep/26 9:35 AM
+Remove dashboard widgets,DMT-157,Bug,Done,Low,Hiro Tanaka,14/Sep/26 10:11 AM,27/Sep/26 6:05 PM,DMT Sprint 6,DMT Sprint 7,2026-09-14
+Improve search filters,DMT-156,Task,Done,High,Ana Kovač,14/Sep/26 8:30 AM,22/Sep/26 6:25 PM,DMT Sprint 7,,19/Sep/26 8:45 AM
+Update search filters,DMT-155,Story,Done,Low,Grace Liu,13/Sep/26 6:45 PM,27/Sep/26 5:42 PM,DMT Sprint 7,,2026-09-18 18:07
+Speed up file upload,DMT-154,Story,Done,Medium,Ben Okafor,12/Sep/26 4:04 PM,16/Sep/26 3:41 PM,DMT Sprint 6,,12/Sep/26 2:29 PM
+Remove API rate limits,DMT-153,Bug,To Do,Medium,,12/Sep/26 4:16 PM,,,,
+Add password reset,DMT-152,Bug,Done,Medium,Ben Okafor,11/Sep/26 10:13 AM,19/Sep/26 1:33 PM,DMT Sprint 6,DMT Sprint 7,11/Sep/26 4:38 PM
+Remove report builder,DMT-151,Story,Done,Medium,Ben Okafor,10/Sep/26 10:22 AM,10/Sep/26 11:40 AM,,,
+Fix notifications,DMT-150,Story,Done,Low,Finn Larsen,10/Sep/26 6:28 PM,11/Sep/26 1:09 PM,DMT Sprint 6,,10.09.2026
+Improve audit log,DMT-149,Bug,Done,High,Hiro Tanaka,09/Sep/26 3:58 PM,01/Oct/26 1:55 PM,DMT Sprint 6,DMT Sprint 7,11/Sep/26 12:05 PM
+Speed up password reset,DMT-148,Story,Done,Medium,Dario Rossi,09/Sep/26 8:00 AM,20/Sep/26 4:27 PM,DMT Sprint 6,DMT Sprint 7,16/Sep/26 10:12 AM
+Update report builder,DMT-147,Story,Done,Medium,Grace Liu,2026-09-09 10:07,16/Sep/26 5:29 PM,DMT Sprint 6,,2026-09-12
+Remove mobile layout,DMT-146,Bug,Done,Low,Ben Okafor,09/Sep/26 12:06 PM,2026-09-12 16:14,DMT Sprint 6,,09/Sep/26 10:07 AM
+Update onboarding flow,DMT-145,Bug,Done,Medium,Ana Kovač,2026-09-09 14:19,11.09.2026. 12:32,DMT Sprint 6,,11/Sep/26 3:25 PM
+Fix login page,DMT-144,Bug,Done,Medium,Finn Larsen,08/Sep/26 10:00 AM,20/Sep/26 12:24 PM,DMT Sprint 6,DMT Sprint 7,09/Sep/26 8:14 AM
+Remove invoice export,DMT-143,Bug,Done,High,Elif Yılmaz,07/Sep/26 3:38 PM,2026-09-16,DMT Sprint 6,,14/Sep/26 1:28 PM
+Fix notifications,DMT-142,Bug,To Do,High,Ana Kovač,07/Sep/26 9:11 AM,,,,
+Update file upload,DMT-141,Bug,Done,Medium,Dario Rossi,07/Sep/26 8:22 AM,12/Sep/26 10:29 AM,DMT Sprint 6,,12/Sep/26 6:30 PM
+Validate invoice export,DMT-140,Task,Done,Medium,Finn Larsen,2026-09-06 12:49,13/Sep/26 11:35 AM,,,
+"Update file upload, phase 3",DMT-139,Task,To Do,High,Ana Kovač,06/Sep/26 5:48 PM,,,,
+Refactor notifications,DMT-138,Story,Done,Medium,Grace Liu,06.09.2026 10:11,2026-09-19,DMT Sprint 6,DMT Sprint 7,2026-09-08 11:15
+Validate CSV import,DMT-137,Bug,Done,Medium,Finn Larsen,06/Sep/26 8:30 AM,07/Sep/26 5:01 PM,DMT Sprint 6,,07/Sep/26 10:09 AM
+Refactor audit log,DMT-136,Story,To Do,Low,,05/Sep/26 8:45 AM,,,,
+Validate onboarding flow,DMT-135,Story,Done,Medium,Hiro Tanaka,05.09.2026.,09/Sep/26 10:33 AM,DMT Sprint 6,,05/Sep/26 1:06 PM
+Improve billing page,DMT-134,Story,Done,Medium,Grace Liu,05.09.2026 15:02,14/Sep/26 2:58 PM,DMT Sprint 6,,07/Sep/26 10:47 AM
+Speed up password reset,DMT-133,Story,Done,Low,Ben Okafor,05/Sep/26 5:07 PM,2026-09-07 11:48,DMT Sprint 6,,06.09.2026.
+Fix mobile layout,DMT-132,Bug,Done,Low,Elif Yılmaz,05/Sep/26 5:21 PM,11/Sep/26 6:48 PM,DMT Sprint 6,,05/Sep/26 5:14 PM
+Update user settings,DMT-131,Story,Done,Medium,Grace Liu,04/Sep/26 2:34 PM,08/Oct/26 6:13 PM,DMT Sprint 6,DMT Sprint 8,11/Sep/26 12:13 PM
+Improve password reset,DMT-130,Bug,To Do,High,,04.09.2026.,,,,
+Validate report builder,DMT-129,Story,Done,Medium,Hiro Tanaka,04/Sep/26 11:05 AM,12/Sep/26 3:18 PM,DMT Sprint 6,,04/Sep/26 12:09 PM
+Add search filters,DMT-128,Bug,Done,Medium,Ben Okafor,04/Sep/26 1:26 PM,12/Sep/26 3:10 PM,DMT Sprint 6,,06/Sep/26 4:21 PM
+Improve login page,DMT-127,Story,Done,Medium,Chloé Martin,04/Sep/26 2:56 PM,13/Sep/26 1:27 PM,DMT Sprint 6,,09.09.2026 13:21
+Update report builder,DMT-126,Bug,To Do,Low,,04/Sep/26 5:25 PM,,,,
+Fix search filters,DMT-125,Story,Done,Low,Ana Kovač,04.09.2026.,11/Sep/26 4:43 PM,DMT Sprint 6,,2026-09-11
+"Fix onboarding flow (""Next"" button)",DMT-124,Story,Done,Medium,Chloé Martin,03/Sep/26 10:47 AM,2026-09-07 13:59,DMT Sprint 6,,05/Sep/26 9:52 AM
+Remove password reset,DMT-123,Story,Done,Medium,Hiro Tanaka,03/Sep/26 2:11 PM,12/Sep/26 10:07 AM,DMT Sprint 6,,04/Sep/26 6:19 PM
+Refactor search filters,DMT-122,Bug,Done,Medium,Ana Kovač,2026-09-03 15:10,04/Sep/26 2:43 PM,DMT Sprint 6,,04/Sep/26 3:47 PM
+"Add invoice export, phase 4",DMT-121,Story,Done,Low,Ben Okafor,02/Sep/26 5:49 PM,03/Sep/26 6:37 PM,DMT Sprint 5,,02/Sep/26 10:10 AM
+Fix login page,DMT-120,Task,Done,Low,Finn Larsen,02/Sep/26 6:04 PM,05/Sep/26 5:48 PM,DMT Sprint 5,DMT Sprint 6,03/Sep/26 5:03 PM
+Add user settings,DMT-119,Bug,Done,Medium,Finn Larsen,02/Sep/26 12:55 PM,08/Sep/26 1:37 PM,DMT Sprint 5,DMT Sprint 6,02.09.2026 08:00
+Speed up report builder,DMT-118,Task,Done,Medium,Ana Kovač,01/Sep/26 9:45 AM,23/Sep/26 5:53 PM,DMT Sprint 7,,22/Sep/26 9:53 AM
+"Improve CSV import (""Export"" button)",DMT-117,Story,Done,Low,Hiro Tanaka,30/Aug/26 10:21 AM,02/Sep/26 5:47 PM,DMT Sprint 5,,2026-08-30 08:10
+Validate audit log,DMT-116,Story,Closed,Highest,Grace Liu,30/Aug/26 5:34 PM,04/Sep/26 8:42 AM,DMT Sprint 5,DMT Sprint 6,01/Sep/26 12:39 PM
+Fix audit log,DMT-115,Story,To Do,Low,Grace Liu,30/Aug/26 1:15 PM,,,,
+Update audit log,DMT-114,Story,Done,Low,Grace Liu,30.08.2026.,11/Sep/26 1:17 PM,DMT Sprint 6,,04/Sep/26 1:34 PM
+Add notifications,DMT-113,Bug,To Do,Low,,29/Aug/26 9:22 AM,,,,
+Update user settings,DMT-112,Bug,Done,Low,Hiro Tanaka,29/Aug/26 5:58 PM,04/Sep/26 12:25 PM,DMT Sprint 5,DMT Sprint 6,31.08.2026.
+Improve user settings,DMT-111,Bug,Done,Low,Ana Kovač,29/Aug/26 8:01 AM,07/Sep/26 6:16 PM,DMT Sprint 5,DMT Sprint 6,29.08.2026
+Fix password reset,DMT-110,Story,Done,Low,Ana Kovač,29/Aug/26 2:51 PM,05/Sep/26 9:15 AM,DMT Sprint 6,,05.09.2026.
+Speed up password reset,DMT-109,Task,Closed,Medium,Elif Yılmaz,28/Aug/26 2:31 PM,08/Sep/26 2:41 PM,DMT Sprint 5,DMT Sprint 6,31/Aug/26 3:52 PM
+Update dashboard widgets,DMT-108,Bug,Closed,Low,Ana Kovač,28.08.2026. 11:39,09/Sep/26 3:29 PM,DMT Sprint 5,DMT Sprint 6,29/Aug/26 1:31 PM
+Add audit log,DMT-107,Bug,Done,High,Hiro Tanaka,28.08.2026. 15:40,29/Aug/26 8:00 AM,DMT Sprint 5,,29/Aug/26 6:24 PM
+Improve file upload,DMT-106,Story,Done,Medium,Finn Larsen,28/Aug/26 3:03 PM,2026-08-31,DMT Sprint 5,,29.08.2026. 10:40
+Validate audit log,DMT-105,Story,Closed,Low,Ana Kovač,28/Aug/26 3:23 PM,04/Sep/26 4:53 PM,DMT Sprint 5,DMT Sprint 6,29/Aug/26 8:18 AM
+Update onboarding flow,DMT-104,Bug,Done,Medium,Chloé Martin,27/Aug/26 1:08 PM,2026-08-30 18:52,DMT Sprint 5,,27/Aug/26 1:51 PM
+Add audit log,DMT-103,Bug,Done,High,Chloé Martin,27/Aug/26 9:39 AM,28/Aug/26 5:14 PM,DMT Sprint 5,,27/Aug/26 8:29 AM
+Add email templates,DMT-102,Story,Done,Medium,Grace Liu,27/Aug/26 2:37 PM,27/Aug/26 12:40 PM,DMT Sprint 5,,27/Aug/26 9:00 AM
+Fix timezone label,DMT-302,Bug,Done,Medium,Ben Okafor,2026-11-10,2026-11-05,,,
+Improve notifications,DMT-101,Story,Done,High,Hiro Tanaka,25.08.2026 08:27,30/Aug/26 10:28 AM,DMT Sprint 5,,28/Aug/26 4:01 PM
+Speed up audit log,DMT-100,Story,Done,Medium,Dario Rossi,24/Aug/26 9:07 AM,25/Aug/26 2:05 PM,DMT Sprint 5,,2026-08-24
+Fix onboarding flow,DMT-99,Bug,Done,Low,Ana Kovač,24/Aug/26 4:40 PM,30/Aug/26 8:59 AM,DMT Sprint 5,,29/Aug/26 6:54 PM
+Validate file upload,DMT-98,Story,Done,Medium,Grace Liu,24.08.2026,30/Aug/26 3:51 PM,DMT Sprint 5,,26/Aug/26 12:51 PM
+Validate API rate limits,DMT-97,Task,Closed,High,Chloé Martin,23/Aug/26 1:35 PM,26/Sep/26 4:39 PM,DMT Sprint 5,DMT Sprint 7,23/Aug/26 6:50 PM
+Speed up dashboard widgets,DMT-96,Bug,Closed,Medium,Grace Liu,23/Aug/26 1:33 PM,26/Aug/26 10:46 AM,DMT Sprint 5,,25.08.2026 18:17
+"Remove dashboard widgets, phase 4",DMT-95,Story,Done,Low,Grace Liu,2026-08-23,29/Aug/26 12:41 PM,DMT Sprint 5,,2026-08-25
+"Improve report builder, phase 2",DMT-94,Bug,Done,Low,Ben Okafor,20/Aug/26 3:12 PM,23/Aug/26 1:48 PM,DMT Sprint 4,DMT Sprint 5,20/Aug/26 1:02 PM
+Refactor onboarding flow,DMT-93,Story,Closed,Medium,Hiro Tanaka,19/Aug/26 1:57 PM,28/Aug/26 6:41 PM,DMT Sprint 5,,26/Aug/26 1:00 PM
+Validate user settings,DMT-92,Task,Closed,Low,Dario Rossi,19/Aug/26 11:47 AM,2026-08-22,DMT Sprint 4,DMT Sprint 5,20/Aug/26 6:15 PM
+Validate login page,DMT-91,Task,Done,Medium,Finn Larsen,2026-08-17 17:24,04.09.2026.,DMT Sprint 5,DMT Sprint 6,31/Aug/26 6:25 PM
+Fix dashboard widgets,DMT-90,Story,Done,Medium,Ben Okafor,17/Aug/26 2:12 PM,27/Aug/26 12:49 PM,DMT Sprint 4,DMT Sprint 5,19/Aug/26 1:11 PM
+Fix file upload,DMT-89,Bug,Done,High,Ana Kovač,17/Aug/26 3:09 PM,27/Aug/26 10:17 AM,DMT Sprint 4,DMT Sprint 5,18/Aug/26 12:49 PM
+Validate login page,DMT-88,Story,Done,High,Grace Liu,16/Aug/26 5:15 PM,16/Aug/26 10:27 AM,DMT Sprint 4,,2026-08-16 09:16
+Add email templates,DMT-87,Story,Done,Medium,Finn Larsen,16.08.2026 17:23,19/Aug/26 4:07 PM,DMT Sprint 4,,2026-08-18
+Add API rate limits,DMT-86,Story,To Do,High,Chloé Martin,15/Aug/26 8:18 AM,,,,
+Fix notifications,DMT-85,Story,To Do,Medium,,15.08.2026,,,,
+"Remove report builder, phase 2",DMT-84,Story,Done,High,Chloé Martin,15/Aug/26 11:03 AM,19/Aug/26 12:12 PM,DMT Sprint 4,,16/Aug/26 12:04 PM
+Update report builder,DMT-83,Story,Done,Medium,Grace Liu,15/Aug/26 4:26 PM,15/Aug/26 10:36 AM,DMT Sprint 4,,13/Aug/26 1:26 PM
+Fix file upload,DMT-82,Story,Done,Low,Ana Kovač,14/Aug/26 1:29 PM,21/Aug/26 3:22 PM,DMT Sprint 4,DMT Sprint 5,2026-08-14
+"Add API rate limits (""Export"" button)",DMT-81,Story,Done,High,Ben Okafor,14/Aug/26 11:36 AM,2026-09-02,DMT Sprint 5,,24/Aug/26 8:29 AM
+Remove report builder,DMT-80,Task,Done,Medium,Ben Okafor,14/Aug/26 3:38 PM,14/Aug/26 6:31 PM,DMT Sprint 4,,14/Aug/26 1:25 PM
+Improve login page,DMT-79,Story,Done,Low,Ben Okafor,13/Aug/26 1:55 PM,16/Aug/26 5:05 PM,DMT Sprint 4,,15/Aug/26 11:10 AM
+Remove API rate limits,DMT-78,Story,To Do,High,,10/Aug/26 10:08 AM,,,,
+Add CSV import,DMT-77,Task,To Do,Medium,Ben Okafor,10.08.2026.,,,,
+Remove notifications,DMT-76,Story,Done,Low,Hiro Tanaka,10/Aug/26 4:36 PM,15/Aug/26 11:09 AM,DMT Sprint 4,,12.08.2026
+"Validate email templates (""Save"" button)",DMT-75,Story,Done,Low,Ana Kovač,10.08.2026.,20/Aug/26 9:20 AM,DMT Sprint 4,,17/Aug/26 5:31 PM
+Refactor search filters,DMT-74,Story,To Do,Medium,,09/Aug/26 10:25 AM,,,,
+"Improve onboarding flow, phase 3",DMT-73,Task,Closed,Medium,Elif Yılmaz,09.08.2026. 15:47,24/Aug/26 10:11 AM,DMT Sprint 4,DMT Sprint 5,16/Aug/26 9:40 AM
+"Speed up CSV import, phase 3",DMT-72,Bug,Done,Medium,Ana Kovač,08.08.2026,09/Aug/26 12:34 PM,,,
+Update dashboard widgets,DMT-71,Story,Done,Medium,Elif Yılmaz,08/Aug/26 12:24 PM,20/Aug/26 8:49 AM,DMT Sprint 4,,15/Aug/26 12:52 PM
+Speed up password reset,DMT-70,Story,To Do,Medium,,08/Aug/26 1:53 PM,,,,
+Add search filters,DMT-69,Story,Done,High,Ana Kovač,07/Aug/26 4:23 PM,17/Aug/26 11:16 AM,,,
+Update login page,DMT-68,Task,Done,High,Ben Okafor,07/Aug/26 11:52 AM,07/Aug/26 9:19 AM,DMT Sprint 4,,2026-08-07 09:32
+Refactor CSV import,DMT-67,Story,Done,Medium,Ben Okafor,06/Aug/26 1:25 PM,08/Aug/26 3:22 PM,DMT Sprint 4,,08.08.2026.
+Improve invoice export,DMT-66,Story,Done,Medium,Ana Kovač,05.08.2026.,25/Aug/26 6:33 PM,DMT Sprint 3,DMT Sprint 5,05/Aug/26 10:34 AM
+Fix login page,DMT-65,Story,Done,Medium,Ben Okafor,05/Aug/26 2:27 PM,09/Aug/26 9:56 AM,DMT Sprint 3,DMT Sprint 4,06/Aug/26 3:42 PM
+Remove CSV import,DMT-64,Story,Closed,High,Chloé Martin,04/Aug/26 1:15 PM,12/Aug/26 4:12 PM,DMT Sprint 3,DMT Sprint 4,05.08.2026
+Refactor mobile layout,DMT-63,Task,To Do,Medium,Finn Larsen,04/Aug/26 4:16 PM,,,,
+Update onboarding flow,DMT-62,Task,Done,Medium,Grace Liu,03/Aug/26 8:11 AM,2026-08-24 15:09,DMT Sprint 3,DMT Sprint 5,04/Aug/26 4:22 PM
+Refactor file upload,DMT-61,Story,Done,Low,Elif Yılmaz,03/Aug/26 12:45 PM,06.08.2026.,DMT Sprint 3,,05/Aug/26 12:11 PM
+Remove login page,DMT-60,Story,Done,Low,Chloé Martin,03.08.2026.,22/Aug/26 5:20 PM,DMT Sprint 3,DMT Sprint 5,06.08.2026
+Validate API rate limits,DMT-59,Task,Done,Medium,Dario Rossi,2026-08-02 15:20,07/Aug/26 1:49 PM,DMT Sprint 3,DMT Sprint 4,02/Aug/26 4:05 PM
+Add mobile layout,DMT-58,Story,Done,Low,Grace Liu,02/Aug/26 1:38 PM,22/Aug/26 12:30 PM,,,
+"Refactor invoice export, phase 3",DMT-57,Bug,Done,Low,Dario Rossi,02/Aug/26 4:33 PM,05/Aug/26 1:31 PM,DMT Sprint 3,,2026-08-02
+Import legacy tickets,DMT-301,Task,Done,Low,Ana Kovač,31.02.2026,2026-11-02,,,2026-10-28
+Add invoice export,DMT-56,Story,Done,Medium,Finn Larsen,01.08.2026,2026-08-05,DMT Sprint 3,,01.08.2026.
+Remove audit log,DMT-55,Story,Done,Medium,Ben Okafor,01/Aug/26 11:31 AM,03/Aug/26 11:26 AM,DMT Sprint 3,,02/Aug/26 4:29 PM
+Remove onboarding flow,DMT-54,Story,Done,High,Elif Yılmaz,01/Aug/26 9:37 AM,14/Aug/26 9:12 AM,,,
+Speed up CSV import,DMT-53,Bug,Closed,Low,Dario Rossi,31/Jul/26 10:27 AM,07.08.2026,DMT Sprint 3,DMT Sprint 4,31/Jul/26 2:35 PM
+Fix user settings,DMT-52,Bug,Done,Low,Ana Kovač,31/Jul/26 8:03 AM,01/Aug/26 10:09 AM,DMT Sprint 3,,01/Aug/26 2:43 PM
+Add dashboard widgets,DMT-51,Bug,Done,Low,Dario Rossi,2026-07-30,13/Aug/26 4:00 PM,DMT Sprint 3,DMT Sprint 4,2026-07-31
+Update report builder,DMT-50,Story,To Do,High,Ben Okafor,30/Jul/26 4:04 PM,,,,
+Add billing page,DMT-49,Bug,Done,High,Ben Okafor,29/Jul/26 11:39 AM,29/Jul/26 9:51 AM,DMT Sprint 3,,29/Jul/26 3:44 PM
+Add mobile layout,DMT-48,Bug,Done,Low,Chloé Martin,29/Jul/26 4:38 PM,02/Aug/26 8:13 AM,DMT Sprint 3,,01/Aug/26 6:12 PM
+Fix invoice export,DMT-47,Story,Done,Medium,Dario Rossi,28/Jul/26 3:52 PM,12/Aug/26 2:56 PM,DMT Sprint 3,DMT Sprint 4,30.07.2026. 17:47
+Improve report builder,DMT-46,Task,Done,Medium,Ben Okafor,28/Jul/26 10:00 AM,01/Aug/26 12:47 PM,DMT Sprint 3,,29/Jul/26 2:10 PM
+Update login page,DMT-45,Story,Done,High,Chloé Martin,28/Jul/26 10:41 AM,30/Jul/26 11:32 AM,DMT Sprint 3,,28.07.2026
+Remove user settings,DMT-44,Task,Done,Medium,Finn Larsen,27/Jul/26 5:11 PM,02/Aug/26 12:45 PM,DMT Sprint 3,,29/Jul/26 5:15 PM
+"Improve file upload, phase 2",DMT-43,Story,Done,Medium,Chloé Martin,27/Jul/26 10:00 AM,31/Jul/26 2:36 PM,DMT Sprint 3,,27/Jul/26 11:03 AM
+"Validate password reset (""Export"" button)",DMT-42,Bug,Done,High,Hiro Tanaka,26.07.2026. 16:21,28/Jul/26 8:28 AM,DMT Sprint 3,,27/Jul/26 11:18 AM
+Validate audit log,DMT-41,Story,Done,Medium,Dario Rossi,26/Jul/26 12:36 PM,28/Jul/26 9:21 AM,DMT Sprint 3,,27/Jul/26 3:01 PM
+Speed up notifications,DMT-40,Story,To Do,High,,2026-07-26,,,,
+Fix API rate limits,DMT-39,Bug,Done,Medium,Ben Okafor,25.07.2026,27/Jul/26 6:30 PM,DMT Sprint 3,,25/Jul/26 10:11 AM
+Refactor audit log,DMT-38,Bug,To Do,Medium,Grace Liu,24/Jul/26 11:42 AM,,,,
+Improve dashboard widgets,DMT-37,Bug,Done,Low,Finn Larsen,24.07.2026,2026-07-24 17:09,DMT Sprint 3,,24/Jul/26 2:36 PM
+Refactor notifications,DMT-36,Bug,Done,Low,Ben Okafor,24/Jul/26 5:31 PM,23/Aug/26 12:23 PM,DMT Sprint 3,DMT Sprint 5,27/Jul/26 4:27 PM
+Validate file upload,DMT-35,Story,Done,High,Chloé Martin,22/Jul/26 10:36 AM,24.07.2026 15:19,DMT Sprint 2,DMT Sprint 3,22.07.2026.
+Add file upload,DMT-34,Story,Done,Medium,Chloé Martin,22/Jul/26 8:41 AM,25/Jul/26 2:52 PM,DMT Sprint 2,DMT Sprint 3,23/Jul/26 11:32 AM
+"Refactor onboarding flow (""Save"" button)",DMT-33,Bug,Done,Low,Grace Liu,22/Jul/26 8:09 AM,27/Jul/26 3:50 PM,DMT Sprint 2,DMT Sprint 3,23/Jul/26 11:17 AM
+Fix notifications,DMT-32,Story,Done,Medium,Dario Rossi,21/Jul/26 6:48 PM,2026-08-07,DMT Sprint 3,DMT Sprint 4,31/Jul/26 12:42 PM
+Update user settings,DMT-31,Bug,Done,Medium,Hiro Tanaka,19/Jul/26 2:08 PM,25/Jul/26 5:12 PM,DMT Sprint 2,DMT Sprint 3,19/Jul/26 10:50 AM
+Remove notifications,DMT-30,Bug,Done,Highest,Chloé Martin,19.07.2026.,30/Jul/26 10:10 AM,DMT Sprint 2,DMT Sprint 3,2026-07-19
+Update dashboard widgets,DMT-29,Bug,Done,Medium,Chloé Martin,19/Jul/26 5:34 PM,28/Jul/26 1:38 PM,DMT Sprint 3,,24/Jul/26 12:48 PM
+Remove file upload,DMT-28,Story,Done,High,Finn Larsen,18.07.2026.,25/Jul/26 8:28 AM,DMT Sprint 2,DMT Sprint 3,23/Jul/26 9:17 AM
+"Refactor search filters, phase 4",DMT-27,Story,To Do,Medium,,18/Jul/26 5:55 PM,,,,
+Add mobile layout,DMT-26,Bug,Done,Medium,Grace Liu,17/Jul/26 10:45 AM,21/Jul/26 12:46 PM,DMT Sprint 2,,2026-07-19
+Fix password reset,DMT-25,Story,Done,Medium,Ana Kovač,17/Jul/26 8:53 AM,23/Jul/26 1:36 PM,DMT Sprint 2,,22/Jul/26 5:17 PM
+Validate search filters,DMT-24,Story,Done,Medium,Ana Kovač,17/Jul/26 8:42 AM,21/Jul/26 4:19 PM,DMT Sprint 2,,2026-07-19 09:39
+Refactor password reset,DMT-23,Bug,Done,Medium,Elif Yılmaz,17/Jul/26 11:51 AM,2026-07-19 11:17,DMT Sprint 2,,17.07.2026.
+Validate login page,DMT-22,Story,Done,Low,Finn Larsen,16.07.2026,26/Jul/26 8:58 AM,DMT Sprint 2,DMT Sprint 3,21/Jul/26 6:10 PM
+Archive old reports,DMT-303,Story,Done,Low,Grace Liu,2026-10-01,2026-10-09,,,2026-10-12
+Validate search filters,DMT-21,Story,Done,High,Grace Liu,2026-07-16,21/Jul/26 1:23 PM,DMT Sprint 2,,21/Jul/26 12:48 PM
+Remove CSV import,DMT-20,Story,Closed,High,Grace Liu,16/Jul/26 12:52 PM,31/Jul/26 1:09 PM,DMT Sprint 2,DMT Sprint 3,18.07.2026
+Refactor dashboard widgets,DMT-19,Story,Done,High,Grace Liu,15/Jul/26 4:30 PM,16/Jul/26 3:05 PM,DMT Sprint 2,,15/Jul/26 12:58 PM
+Update search filters,DMT-18,Task,Done,Medium,Ben Okafor,2026-07-15 14:36,27/Jul/26 2:49 PM,DMT Sprint 2,DMT Sprint 3,22/Jul/26 9:14 AM
+Remove login page,DMT-17,Bug,To Do,High,Finn Larsen,15.07.2026.,,,,
+Add report builder,DMT-16,Story,Done,Medium,Elif Yılmaz,15/Jul/26 2:44 PM,18/Jul/26 3:08 PM,DMT Sprint 2,,15.07.2026 08:40
+Improve password reset,DMT-15,Story,To Do,High,Grace Liu,14/Jul/26 3:06 PM,,,,
+Update report builder,DMT-14,Task,Done,Medium,Hiro Tanaka,13/Jul/26 6:37 PM,17/Jul/26 8:29 AM,DMT Sprint 2,,13/Jul/26 4:36 PM
+"Improve invoice export (""Export"" button)",DMT-13,Task,Done,Medium,Ana Kovač,13/Jul/26 5:30 PM,27/Jul/26 10:14 AM,DMT Sprint 2,DMT Sprint 3,23/Jul/26 8:48 AM
+Add audit log,DMT-12,Task,Done,Medium,Hiro Tanaka,12/Jul/26 9:42 AM,18/Jul/26 4:53 PM,DMT Sprint 2,,17/Jul/26 5:41 PM
+"Validate search filters (""Save"" button)",DMT-11,Story,To Do,Low,Grace Liu,12/Jul/26 2:36 PM,,,,
+Remove dashboard widgets,DMT-10,Bug,Done,Medium,Elif Yılmaz,12/Jul/26 9:08 AM,15/Jul/26 5:00 PM,DMT Sprint 2,,13/Jul/26 5:54 PM
+Fix invoice export,DMT-9,Bug,Done,Medium,Elif Yılmaz,12/Jul/26 3:27 PM,13/Jul/26 8:38 AM,DMT Sprint 2,,13/Jul/26 9:07 AM
+Update audit log,DMT-8,Story,Done,Medium,Ben Okafor,12/Jul/26 1:02 PM,14/Jul/26 10:44 AM,DMT Sprint 2,,13/Jul/26 5:15 PM
+Improve user settings,DMT-7,Story,Done,High,Grace Liu,11/Jul/26 12:18 PM,14.07.2026. 09:21,DMT Sprint 2,,13/Jul/26 2:50 PM
+Add file upload,DMT-6,Bug,Done,Low,Dario Rossi,11/Jul/26 9:08 AM,15/Jul/26 6:09 PM,DMT Sprint 2,,12/Jul/26 8:15 AM
+Validate API rate limits,DMT-5,Story,Done,High,Elif Yılmaz,11/Jul/26 8:22 AM,23/Jul/26 2:58 PM,DMT Sprint 2,,18/Jul/26 3:50 PM
+Improve login page,DMT-4,Story,Done,High,Dario Rossi,11/Jul/26 4:18 PM,17/Jul/26 10:02 AM,DMT Sprint 2,,14/Jul/26 1:36 PM
+"Improve audit log, phase 3",DMT-3,Story,Done,High,Ben Okafor,10/Jul/26 1:13 PM,20/Jul/26 6:49 PM,DMT Sprint 2,,13/Jul/26 2:37 PM
+"Improve audit log, phase 3 (copy)",DMT-3,Story,Done,Medium,Hiro Tanaka,2026-09-01,2026-09-04,,,2026-09-02
+Fix email templates,DMT-2,Bug,To Do,Medium,,10/Jul/26 5:21 PM,,,,
+Refactor notifications,DMT-1,Bug,To Do,High,Ben Okafor,10/Jul/26 1:44 PM,,,,
