@@ -132,6 +132,18 @@ All durations are in **calendar days**, counted inclusively: both the start day 
   - `--count 5000` makes the file for the local performance check.
   - Five sample issues are checked by hand in `sample.test.ts` (DMT-200, DMT-150, DMT-238, DMT-83, DMT-297).
 - Task 16 (sample date shift), 27 Nov 2026: `shiftSample.ts` moves every date by (Monday of today's week − Monday of the export week). That is always whole weeks, so weekdays, durations and weekly counts stay the same. A test loads the sample at five dates up to 2028 and gets the same counts, lead time, cycle time and WIP every time. It also shows that without the shift the sample would be empty by March 2027. The export date constant now lives in `src/domain/shiftSample.ts`, so the generator and the shift share it.
+- Phase 4 (UI), 27 Nov 2026:
+  - Upload (drag-and-drop or file picker) and "Load sample data". The sample is shifted by whole weeks, and the toolbar says so when the shift is not zero.
+  - An error banner names every missing column. Skipped rows and Started-before-Created issues are listed with keys and reasons.
+  - Four metric cards, the reporting window shown in words, and empty states: no file yet, nothing resolved in the window (with the latest Resolved date), and no type selected.
+  - A 12-week throughput chart and a lead time histogram with median and 85th-percentile lines.
+  - A multi-select Issue Type filter with Select all and Clear.
+  - Checked by 69 component tests, which compare the cards, the chart data and the filter results with the hand calculation in `manual-small.expected.md`, plus a manual check in a real browser. 344 tests in total.
+  - Each chart has a hidden data table for screen readers. The component tests read these tables, because charts have no size in the test environment.
+  - The plan's `SkippedRows.tsx` became `DataNotes.tsx`, because it now also lists adjusted issues.
+  - The lead-time histogram grouping is in `src/domain/histogram.ts`, at 100% coverage: 1-day bars up to 30 days, then 2, 5 or 7 days per bar, at most 30 bars.
+  - The production JavaScript bundle is 597 kB (177 kB compressed), mostly the chart library. Vite warns about the size. For a tool run locally this is acceptable; the charts could be loaded on demand later.
+  - A type error in the chart code was caught by the commit check, which now runs lint, type check and tests before every commit, so nothing broken was committed.
 - Where the AI got it wrong, and why
   - Two expected values I calculated by hand for the tests were wrong. The code was right, and the failing tests caught the mistakes:
     - the window start for 13 Jan 2027 (12 Oct instead of 19 Oct)
