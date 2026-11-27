@@ -103,6 +103,14 @@ All durations are in **calendar days**, counted inclusively: both the start day 
   - Impossible date order (Resolved before Created, Started after Resolved) counts as an invalid date, so the row is skipped. Rows that repeat an earlier issue key are also skipped and listed.
 - Setup, 27 Nov 2026: Git, Node.js and GitHub CLI were not installed on the build machine and were installed with winget. The current Node LTS is 26, not 22 as planned, so the project uses Node 26.
 - Scope change, 27 Nov 2026: CI runs lint, type checks, unit tests, build and one smoke browser test. The 5,000-issue performance check moved out of CI and runs locally only. 100% test coverage of the calculation code is kept.
+- Phase 1 (project setup), 27 Nov 2026:
+  - The newest TypeScript is 7.0, but the ESLint TypeScript plugin (typescript-eslint 8.74) supports only TypeScript below 6.1. TypeScript is pinned to 6.0.3. Revisit when typescript-eslint supports 7.
+  - React stays on 18.3.1 as planned, although React 19 is current.
+  - Running Prettier over the repository reformatted the Markdown docs: table alignment, and `*text*` became `_text_`. The wording did not change.
+  - `.gitattributes` forces LF line endings, so files are identical on Windows and in CI. The sample-data check (task 15) compares the generated file byte for byte, so this matters there.
+  - The coverage limit is in place, but it can't fail yet because `src/domain/` is still empty. It starts to apply from task 5.
+  - First CI run on GitHub passed in 35 s (lint, type check, tests, build, smoke test).
+  - Blocking merges to main has to be set in the GitHub repository settings by the owner. The steps are in the README.
 - Where the AI got it wrong, and why
 - What had to be changed in this spec after the first build
 - Time spent per step
