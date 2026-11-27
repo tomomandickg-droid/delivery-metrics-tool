@@ -1,0 +1,20 @@
+Summary,Issue key,Issue Type,Status,Created,Resolved,Started,Priority
+"Login page, part 1",MS-1,Story,Done,01/Nov/26 9:15 AM,2026-11-06,02.11.2026.,High
+Typo on home page,MS-2,Bug,Done,2026-11-10,10/Nov/26 4:30 PM,2026-11-10,Low
+Export to PDF,MS-3,Story,Done,15.09.2026,02/Oct/26 11:00 AM,2026-09-21,Medium
+Update dependencies,MS-4,Task,Done,2026-08-20,31.08.2026.,2026-08-28,Low
+Crash on save,MS-5,Bug,Closed,18/Nov/26 8:00 AM,2026-11-22,,High
+Search filters,MS-6,Story,Done,2026-10-01,20.10.2026,2026-10-12,Medium
+Password reset,MS-7,Story,Done,2026-09-28,2026-10-02,2026-09-25,High
+Old dashboard,MS-8,Story,Done,2026-08-03,30/Aug/26 5:00 PM,2026-08-10,Low
+Wrong total,MS-9,Bug,Done,2026-11-19,2026-11-24,2026-11-20,Medium
+User settings,MS-10,Story,In Progress,2026-11-02,,2026-11-09,Medium
+Timeout on upload,MS-11,Bug,In Review,2026-11-12,,13.11.2026,High
+Reporting module,MS-12,Story,In Progress,2026-07-01,,2026-07-15,Low
+Clean up logs,MS-13,Task,To Do,2026-11-20,,,Low
+Broken date,MS-14,Bug,Done,31.02.2026,2026-11-05,,Medium
+Resolved too early,MS-15,Story,Done,2026-11-03,2026-11-01,,Low
+Started too late,MS-16,Task,Done,2026-10-05,2026-10-15,2026-10-20,Low
+"Login page, part 1 (duplicate row)",MS-1,Story,Done,2026-11-05,2026-11-07,2026-11-05,High
+Bad resolved date,MS-17,Story,Done,2026-10-10,2026-13-01,,Medium
+Bad started date,MS-18,Task,In Progress,2026-11-04,,tbd,Low

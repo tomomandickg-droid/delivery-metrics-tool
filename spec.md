@@ -119,6 +119,7 @@ All durations are in **calendar days**, counted inclusively: both the start day 
   - The missing-column cases are tested with CSV text inside the tests, instead of separate `missing-*.csv` files as plan.md §3 listed.
   - The lead-time histogram grouping (plan.md §6.6) is calculation code but belongs to the chart. It will be added as a tested domain function with task 20.
   - A PR branch runs CI twice, once for the push and once for the pull request. This is harmless. Limiting push runs to main would halve it.
+- Task 14 (manual fixture), 27 Nov 2026: `tests/fixtures/manual-small.csv` has 19 rows: 13 kept issues and one row for each of the 6 skip reasons. It uses all three date formats, a quoted summary with a comma, and the columns in a different order from Jira's. `manual-small.expected.md` shows the hand calculation for today = 27 Nov 2026, and `manualFixture.test.ts` checks the code against it (31 checks, all passing on the first run). The fixture has 19 rows instead of the planned ~15, so that every rule is covered. Waiting for the owner's review of the hand calculation before tasks 15–16.
 - Where the AI got it wrong, and why
   - Two expected values I calculated by hand for the tests were wrong. The code was right, and the failing tests caught the mistakes:
     - the window start for 13 Jan 2027 (12 Oct instead of 19 Oct)
