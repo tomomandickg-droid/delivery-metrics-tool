@@ -6,20 +6,20 @@ A task that adds calculation code is done only when its tests pass and `src/doma
 ## Phase 1 — Project setup
 
 1. **Set up git and the project.** Run `git init`. Create a Vite + React + TypeScript (strict) project with `.nvmrc` (Node 26), `.gitignore` and a README stub.
-   *Done when:* `npm run dev` shows a blank page and the first commit is made.
+   _Done when:_ `npm run dev` shows a blank page and the first commit is made.
 2. **Add tooling and scripts.** Set up ESLint, Prettier, Vitest (jsdom, v8 coverage, 100% threshold on `src/domain/`), Testing Library and Playwright. Add the scripts `lint`, `typecheck`, `test`, `test:coverage`, `test:smoke`, `test:perf` and `generate:sample`. Configure Playwright so `*.local.spec.ts` runs only with `test:perf`.
-   *Done when:* every script runs and passes on a placeholder test.
+   _Done when:_ every script runs and passes on a placeholder test.
 3. **Add the CI workflow.** Create `.github/workflows/ci.yml` with lint, typecheck, coverage, build and the smoke test (§11), and push to GitHub.
-   *Done when:* the `ci` check is green on GitHub.
+   _Done when:_ the `ci` check is green on GitHub.
 4. **Protect main (repository owner).** Require a pull request and the `ci` status check for `main`.
-   *Done when:* a test PR with a deliberately failing test cannot be merged.
+   _Done when:_ a test PR with a deliberately failing test cannot be merged.
 
 ## Phase 2 — Calculation code (pure, with unit tests)
 
 5. **Dates.** Add the types in `types.ts`. In `dates.ts`, write `parseDate` for the three formats with an optional time of day (§4.1), plus `inclusiveDays`. Test every case in §4.1, including dates that don't exist.
 6. **Reporting window.** In `window.ts`, write `reportingWindow(today)`: 12 Monday–Sunday weeks ending with the last completed week (§5). Test the 27 Nov 2026 example, today on a Monday and on a Sunday, and a year boundary.
 7. **CSV and columns.** Write `parseCsv.ts` and `columns.ts`: header matching (case, spaces, BOM, `Custom field (Started)`, repeated headers), every missing column named in one error, and the empty-file and header-only errors.
-   *Done when:* there is one test per required column, a test with several missing, and the file-error tests.
+   _Done when:_ there is one test per required column, a test with several missing, and the file-error tests.
 8. **Rows to issues.** In `toIssues.ts`, convert rows to issues and record each skipped row with its key and reason (§4.3). Write one test per skip reason, plus tests for the cases that are not skipped.
 9. **Percentiles.** In `stats.ts`, write `percentile` (PERCENTILE.INC) and `median` (§6.4). Test the worked example, odd and even n, n = 0 and 1, and Excel reference values.
 10. **Throughput.** In `metrics/throughput.ts`, write the weekly counts for the window and the average over 12 weeks, with 0 weeks counted (§6.1). Test the window edges.
@@ -30,7 +30,7 @@ A task that adds calculation code is done only when its tests pass and `src/doma
 ## Phase 3 — Data
 
 14. **Manual fixture.** Write `tests/fixtures/manual-small.csv` (about 15 issues, §8.3), the hand calculation in `manual-small.expected.md` for today = 27 Nov 2026, and a test that `computeDashboard` matches it exactly.
-   *Done when:* you have checked the hand calculation.
+    _Done when:_ you have checked the hand calculation.
 15. **Sample generator.** Write `scripts/generate-sample.ts` (§8.1) and commit `public/sample-data/jira-sample.csv`. Add a test that the output does not change between runs, and check 5 sample issues by hand.
 16. **Sample date shift.** In `shiftSample.ts`, move the dates forward by whole weeks for the "Load sample data" button (§8.2), with tests. Approved on 27 Nov 2026.
 
@@ -45,5 +45,5 @@ A task that adds calculation code is done only when its tests pass and `src/doma
 ## Phase 5 — Browser checks and handover
 
 22. **Browser tests.** Write `e2e/smoke.spec.ts`, which runs in CI: with the clock fixed at 27 Nov 2026, load the sample and check that the four metric cards appear. Also write `e2e/performance.local.spec.ts`, which runs locally only: 5,000 issues, all four cards within 2 s (§9).
-   *Done when:* the smoke test is green in CI and the local performance run passes.
+    _Done when:_ the smoke test is green in CI and the local performance run passes.
 23. **README and acceptance review.** In the README, cover how to run the tool, the CSV format and date formats, the metric rules, CI and the main-branch gate, and `npm run test:perf`. Then record evidence for each acceptance criterion in `spec.md` and fill in the remaining delivery notes.

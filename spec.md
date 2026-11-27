@@ -1,20 +1,25 @@
 # Delivery Metrics Tool — Specification
 
 ## Problem
+
 Delivery managers track throughput, lead time and cycle time by hand in spreadsheets, or not at all. Jira shows the raw data but not the delivery picture a client or leadership asks for.
 
 ## Users
+
 - Delivery Manager / Project Manager running one or more agile teams
 - Stakeholders who receive a weekly delivery report
 
 ## Scope (v1)
+
 Input: a Jira CSV export of issues.
 Output: a local web dashboard with delivery metrics.
 
 Out of scope for v1: live Jira API connection, user accounts, multiple projects at once.
 
 ## Input data
+
 Required CSV columns:
+
 - Issue key
 - Issue Type
 - Status
@@ -25,6 +30,7 @@ Required CSV columns:
 If a required column is missing, the tool shows a clear error naming the column.
 
 Supported date formats (in Created, Resolved and Started):
+
 - Jira's default export format, e.g. `27/Nov/26 10:15 AM`
 - ISO, e.g. `2026-11-27`
 - Day.month.year, e.g. `27.11.2026`
@@ -34,9 +40,11 @@ Rows with an invalid date are skipped. Impossible date order also counts as inva
 The "Load sample data" button moves the sample's dates forward by whole weeks so that the sample always falls inside the reporting window. A file uploaded by hand always uses its real dates.
 
 ## Reporting window
+
 Throughput, lead time and cycle time use a **12-week window**. Weeks run Monday to Sunday. The window ends with the last completed week. The current week is not finished yet, so it is excluded.
 
 ## Metrics
+
 **Done** means the issue has a Resolved date.
 
 1. **Throughput**: number of issues resolved per week in the window. The card shows the average per week over the 12 weeks.
@@ -52,6 +60,7 @@ Percentiles (including the median) are calculated the same way as Excel `PERCENT
 All durations are in **calendar days**, counted inclusively: both the start day and the end day count. An issue created and resolved on the same day has a lead time of 1 day; created 1 Nov and resolved 6 Nov is 6 days.
 
 ## Dashboard
+
 - Upload area for the CSV
 - Four metric cards (one per metric above)
 - Chart: throughput per week (the 12-week window)
@@ -60,6 +69,7 @@ All durations are in **calendar days**, counted inclusively: both the start day 
 - List of skipped rows (count and issue keys)
 
 ## Acceptance criteria
+
 - [ ] Uploading a valid CSV shows all four metrics within 2 seconds for up to 5,000 issues (checked locally, not in CI)
 - [ ] Uploading a CSV with a missing column shows an error naming that column
 - [ ] Lead time and cycle time values match a manual calculation on the sample data
@@ -68,12 +78,14 @@ All durations are in **calendar days**, counted inclusively: both the start day 
 - [ ] Sample data file is included so anyone can try the tool
 
 ## Quality gates
+
 - Automated tests for every metric calculation; 100% test coverage of the calculation code
 - On every push, GitHub Actions runs: lint, type checks, unit tests, the build, and one smoke browser test (load the sample file and check that the four metric cards appear)
 - A failing check blocks merge to main
 - The 5,000-issue performance check runs locally only, not in CI
 
 ## Delivery notes (to be filled in while building)
+
 - Spec v1 assumed "Status category changed" gives the start of work. It holds the date of the last category change, so for done issues it equals the resolution date. Replaced with a "Started" column.
 - Spec v1 did not say calendar or working days. Decided: calendar days. Counted inclusively, so the minimum is 1 day (no 0-day items).
 - Plan review, 27 Nov 2026. Decisions on the open questions:

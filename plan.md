@@ -10,18 +10,18 @@ A single-page web app that runs entirely in the browser. The user drops a Jira C
 
 ## 2. Tech stack
 
-| Concern | Choice | Why |
-|---|---|---|
-| Language | TypeScript (strict mode) | Types for dates and issues catch mistakes in metric code |
-| Build / dev server | Vite | Fast local dev; `npm run build` produces static files |
-| UI | React 18 | Simple component model for cards, charts and filter |
-| CSV parsing | Papa Parse, `header: false` | Handles quoted fields and embedded newlines. We map columns ourselves because Jira repeats some headers (e.g. several `Sprint` columns) |
-| Charts | Recharts | Bar charts plus `ReferenceLine` for the median and 85th-percentile lines |
-| Dates | Small custom module, no date library (§4.1) | Exact calendar-day counting with no time zone or DST effects |
-| Unit and component tests | Vitest + @testing-library/react + jsdom, with v8 coverage | Same config as Vite; fast |
-| Browser tests | Playwright (Chromium) | One smoke test in CI; the performance check runs locally |
-| Lint / format | ESLint + Prettier | |
-| Runtime | Node 26 LTS, pinned in `.nvmrc` | Current LTS (Nov 2026); installed locally and used in CI |
+| Concern                  | Choice                                                    | Why                                                                                                                                     |
+| ------------------------ | --------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| Language                 | TypeScript (strict mode)                                  | Types for dates and issues catch mistakes in metric code                                                                                |
+| Build / dev server       | Vite                                                      | Fast local dev; `npm run build` produces static files                                                                                   |
+| UI                       | React 18                                                  | Simple component model for cards, charts and filter                                                                                     |
+| CSV parsing              | Papa Parse, `header: false`                               | Handles quoted fields and embedded newlines. We map columns ourselves because Jira repeats some headers (e.g. several `Sprint` columns) |
+| Charts                   | Recharts                                                  | Bar charts plus `ReferenceLine` for the median and 85th-percentile lines                                                                |
+| Dates                    | Small custom module, no date library (§4.1)               | Exact calendar-day counting with no time zone or DST effects                                                                            |
+| Unit and component tests | Vitest + @testing-library/react + jsdom, with v8 coverage | Same config as Vite; fast                                                                                                               |
+| Browser tests            | Playwright (Chromium)                                     | One smoke test in CI; the performance check runs locally                                                                                |
+| Lint / format            | ESLint + Prettier                                         |                                                                                                                                         |
+| Runtime                  | Node 26 LTS, pinned in `.nvmrc`                           | Current LTS (Nov 2026); installed locally and used in CI                                                                                |
 
 Exact package versions are pinned in `package.json` at setup and committed with `package-lock.json`.
 
@@ -96,15 +96,16 @@ delivery-metrics-tool/
   - 31 Oct 23:59 → 1 Nov 00:01 = **2 days** (time of day ignored)
   - 28 Feb 2028 → 1 Mar 2028 = **3 days** (leap year)
   - 24 Oct → 26 Oct 2026, across the end of daylight saving time = **3 days**
+
 - The minimum duration is 1 day. A 0-day value cannot occur.
 
 **Supported formats** (decided). Each may be followed by a time of day, which is ignored:
 
-| Format | Example | Rule |
-|---|---|---|
-| Jira default export | `27/Nov/26 10:15 AM` | `dd/MMM/yy`, English month abbreviation (any case), `yy` → `20yy` |
-| ISO | `2026-11-27`, `2026-11-27T10:15` | `YYYY-MM-DD`; the date part is used as written |
-| Day.month.year | `27.11.2026`, `27.11.2026.` | `DD.MM.YYYY`; a trailing dot (as in Croatian date style) is allowed |
+| Format              | Example                          | Rule                                                                |
+| ------------------- | -------------------------------- | ------------------------------------------------------------------- |
+| Jira default export | `27/Nov/26 10:15 AM`             | `dd/MMM/yy`, English month abbreviation (any case), `yy` → `20yy`   |
+| ISO                 | `2026-11-27`, `2026-11-27T10:15` | `YYYY-MM-DD`; the date part is used as written                      |
+| Day.month.year      | `27.11.2026`, `27.11.2026.`      | `DD.MM.YYYY`; a trailing dot (as in Croatian date style) is allowed |
 
 The three formats use different separators (`/`, `-`, `.`), so a value can never match two of them. Dates that don't exist, such as `31.02.2026` or `30/Feb/26`, are invalid.
 
@@ -124,16 +125,17 @@ Required columns: `Issue key`, `Issue Type`, `Status`, `Created`, `Resolved`, `S
 
 A row is **skipped** (decision 7) when any of these is true. Each skipped row is recorded with its issue key and the reason:
 
-| Reason | Example |
-|---|---|
-| `Created` is empty or not a valid date | `Created = "soon"` |
-| `Resolved` is not empty and not a valid date | `Resolved = "31.02.2026"` |
-| `Started` is not empty and not a valid date | `Started = "2026-13-01"` |
-| `Resolved` is earlier than `Created` | the dates are each valid, but the order is impossible |
-| `Started` is later than `Resolved` | the dates are each valid, but the order is impossible |
-| Duplicate `Issue key` | the first row is kept; later ones are skipped |
+| Reason                                       | Example                                               |
+| -------------------------------------------- | ----------------------------------------------------- |
+| `Created` is empty or not a valid date       | `Created = "soon"`                                    |
+| `Resolved` is not empty and not a valid date | `Resolved = "31.02.2026"`                             |
+| `Started` is not empty and not a valid date  | `Started = "2026-13-01"`                              |
+| `Resolved` is earlier than `Created`         | the dates are each valid, but the order is impossible |
+| `Started` is later than `Resolved`           | the dates are each valid, but the order is impossible |
+| Duplicate `Issue key`                        | the first row is kept; later ones are skipped         |
 
 **Not** reasons to skip:
+
 - An empty `Resolved` or `Started`. That is normal: the issue is open, or not started yet.
 - `Started` earlier than `Created`. Work sometimes starts before the ticket is logged.
 
@@ -149,6 +151,7 @@ Decisions 1, 2 and 6. Implemented in `window.ts` as `reportingWindow(today)`.
 - `today` is the viewer's local date when the app runs. In tests it is always passed in explicitly.
 
 Worked example (becomes a unit test). Today is Friday 27 Nov 2026:
+
 - The current week is Mon 23 Nov – Sun 29 Nov. It is excluded.
 - The last completed week is Mon 16 Nov – Sun 22 Nov.
 - The window is **Mon 31 Aug 2026 – Sun 22 Nov 2026**, which is 84 days.
@@ -252,20 +255,20 @@ Parsing, checking and calculating run in the browser's main thread, and are expe
 
 ## 10. Tests
 
-| Area | Tool | What is covered |
-|---|---|---|
-| `dates.ts` | Vitest | all three formats, with and without time of day; dates that don't exist; garbage values; the `inclusiveDays` cases in §4.1 |
-| `window.ts` | Vitest | the worked example in §5; today on a Monday and on a Sunday; year boundary |
-| `columns.ts`, `parseCsv.ts` | Vitest | each of the 6 columns missing on its own and named in the error; several missing; BOM; case and spacing; `Custom field (Started)`; repeated headers; empty file; header only |
-| `toIssues.ts` | Vitest | each skip reason in §4.3; the cases that are not skipped |
-| `stats.ts` | Vitest | odd and even n; n = 0 and 1; ties; the worked example; Excel `PERCENTILE.INC` reference values |
-| `metrics/*` | Vitest | window edges (Monday of week 1, Sunday of week 12, the day before, the current week); 0 weeks in the average; no Started date excluded from cycle time; WIP vs backlog |
-| `filter.ts`, `computeDashboard.ts` | Vitest | `manual-small` matches the expected values; one type, two types, none |
-| `shiftSample.ts` | Vitest | shift is a whole number of weeks; weekdays and durations unchanged |
-| Sample generator | Vitest | a fresh run gives the same file as the committed one |
-| UI components | Vitest + Testing Library | missing column → banner names it; skipped rows shown with keys; selecting types updates cards and charts; "No data" and "nothing resolved in window" states |
-| Smoke test | Playwright, **in CI** | open the built app, click "Load sample data", check that the four metric cards appear |
-| Performance | Playwright, **local only** | §9 |
+| Area                               | Tool                       | What is covered                                                                                                                                                              |
+| ---------------------------------- | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `dates.ts`                         | Vitest                     | all three formats, with and without time of day; dates that don't exist; garbage values; the `inclusiveDays` cases in §4.1                                                   |
+| `window.ts`                        | Vitest                     | the worked example in §5; today on a Monday and on a Sunday; year boundary                                                                                                   |
+| `columns.ts`, `parseCsv.ts`        | Vitest                     | each of the 6 columns missing on its own and named in the error; several missing; BOM; case and spacing; `Custom field (Started)`; repeated headers; empty file; header only |
+| `toIssues.ts`                      | Vitest                     | each skip reason in §4.3; the cases that are not skipped                                                                                                                     |
+| `stats.ts`                         | Vitest                     | odd and even n; n = 0 and 1; ties; the worked example; Excel `PERCENTILE.INC` reference values                                                                               |
+| `metrics/*`                        | Vitest                     | window edges (Monday of week 1, Sunday of week 12, the day before, the current week); 0 weeks in the average; no Started date excluded from cycle time; WIP vs backlog       |
+| `filter.ts`, `computeDashboard.ts` | Vitest                     | `manual-small` matches the expected values; one type, two types, none                                                                                                        |
+| `shiftSample.ts`                   | Vitest                     | shift is a whole number of weeks; weekdays and durations unchanged                                                                                                           |
+| Sample generator                   | Vitest                     | a fresh run gives the same file as the committed one                                                                                                                         |
+| UI components                      | Vitest + Testing Library   | missing column → banner names it; skipped rows shown with keys; selecting types updates cards and charts; "No data" and "nothing resolved in window" states                  |
+| Smoke test                         | Playwright, **in CI**      | open the built app, click "Load sample data", check that the four metric cards appear                                                                                        |
+| Performance                        | Playwright, **local only** | §9                                                                                                                                                                           |
 
 **Coverage**: 100% of lines, branches, functions and statements in `src/domain/`. It is enforced as a Vitest coverage threshold, so CI fails if any of it drops. UI code is covered by the component tests and the smoke test, with no percentage target.
 
@@ -291,6 +294,7 @@ The smoke test sets the browser clock to 27 Nov 2026 (Playwright `page.clock`) s
 From the spec: live Jira API, user accounts, several projects at once.
 
 Also not in v1:
+
 - working-day calculation
 - a user-chosen window or "as of" date
 - saving data between page reloads
