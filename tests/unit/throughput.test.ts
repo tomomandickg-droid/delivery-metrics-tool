@@ -7,7 +7,8 @@ import { d, issue } from './helpers';
 // Today Fri 27 Nov 2026 → window Mon 31 Aug … Sun 22 Nov 2026.
 const window = reportingWindow(d('2026-11-27'));
 
-const resolvedOn = (key: string, resolved: string) => issue(key, { created: '2026-06-01', resolved });
+const resolvedOn = (key: string, resolved: string) =>
+  issue(key, { created: '2026-06-01', resolved });
 
 describe('throughput (plan.md §6.1)', () => {
   it('counts issues per Monday–Sunday week, with 0 for empty weeks', () => {
@@ -40,7 +41,10 @@ describe('throughput (plan.md §6.1)', () => {
   });
 
   it('leaves out unresolved issues', () => {
-    const result = throughput([issue('open', { created: '2026-10-01', started: '2026-10-02' })], window);
+    const result = throughput(
+      [issue('open', { created: '2026-10-01', started: '2026-10-02' })],
+      window,
+    );
     expect(result.total).toBe(0);
   });
 

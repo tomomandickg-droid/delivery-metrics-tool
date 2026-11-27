@@ -7,13 +7,33 @@ const TODAY = d('2026-11-27'); // window Mon 31 Aug … Sun 22 Nov 2026
 
 const issues = [
   // Stories: lead 6 and 2, cycle 5 and 2; one WIP
-  issue('S1', { type: 'Story', created: '2026-11-01', started: '2026-11-02', resolved: '2026-11-06' }),
-  issue('S2', { type: 'Story', created: '2026-10-05', started: '2026-10-05', resolved: '2026-10-06' }),
-  issue('S3', { type: 'Story', status: 'In Progress', created: '2026-11-10', started: '2026-11-12' }),
+  issue('S1', {
+    type: 'Story',
+    created: '2026-11-01',
+    started: '2026-11-02',
+    resolved: '2026-11-06',
+  }),
+  issue('S2', {
+    type: 'Story',
+    created: '2026-10-05',
+    started: '2026-10-05',
+    resolved: '2026-10-06',
+  }),
+  issue('S3', {
+    type: 'Story',
+    status: 'In Progress',
+    created: '2026-11-10',
+    started: '2026-11-12',
+  }),
   // Bugs: lead 1, no Started; one WIP; one resolved in the current week (outside the window)
   issue('B1', { type: 'Bug', created: '2026-09-15', resolved: '2026-09-15' }),
   issue('B2', { type: 'Bug', status: 'In Review', created: '2026-11-15', started: '2026-11-16' }),
-  issue('B3', { type: 'Bug', created: '2026-11-20', started: '2026-11-21', resolved: '2026-11-24' }),
+  issue('B3', {
+    type: 'Bug',
+    created: '2026-11-20',
+    started: '2026-11-21',
+    resolved: '2026-11-24',
+  }),
   // Task: backlog only
   issue('T1', { type: 'Task', status: 'To Do', created: '2026-11-01' }),
 ];

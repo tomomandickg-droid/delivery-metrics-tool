@@ -32,7 +32,10 @@ export function computeDashboard(
 
   let latestResolved: CalendarDate | null = null;
   for (const issue of issues) {
-    if (issue.resolved !== undefined && (latestResolved === null || issue.resolved > latestResolved)) {
+    if (
+      issue.resolved !== undefined &&
+      (latestResolved === null || issue.resolved > latestResolved)
+    ) {
       latestResolved = issue.resolved;
     }
   }

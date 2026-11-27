@@ -26,7 +26,11 @@ const ACCEPTED_HEADERS: Readonly<Record<RequiredColumn, readonly string[]>> = {
 
 /** Removes a byte-order mark, trims, collapses inner spaces and ignores case. */
 export function normalizeHeader(header: string): string {
-  return header.replace(/^﻿/, '').trim().replace(/\s+/g, ' ').toLowerCase();
+  return header
+    .replace(/^\uFEFF/, '')
+    .trim()
+    .replace(/\s+/g, ' ')
+    .toLowerCase();
 }
 
 export type ColumnMatch =
@@ -49,7 +53,9 @@ export function matchColumns(headers: readonly string[]): ColumnMatch {
     else indexes[column] = index;
   }
 
-  return missing.length > 0 ? { ok: false, missing } : { ok: true, indexes: indexes as ColumnIndexes };
+  return missing.length > 0
+    ? { ok: false, missing }
+    : { ok: true, indexes: indexes as ColumnIndexes };
 }
 
 /** `Missing required column: "Started"` or `Missing required columns: "Resolved", "Started"` */

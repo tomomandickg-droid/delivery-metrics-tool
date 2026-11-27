@@ -21,18 +21,35 @@ function row(fields: Partial<RawRow>): RawRow {
 describe('toIssues: kept rows', () => {
   it('keeps a resolved issue with all three dates', () => {
     const result = toIssues([
-      row({ key: 'DM-1', created: '01/Nov/26 9:00 AM', started: '2.11.2026.', resolved: '2026-11-06' }),
+      row({
+        key: 'DM-1',
+        created: '01/Nov/26 9:00 AM',
+        started: '2.11.2026.',
+        resolved: '2026-11-06',
+      }),
     ]);
     expect(result.skipped).toEqual([]);
     expect(result.issues).toEqual([
-      { key: 'DM-1', type: 'Story', status: 'Done', created: d('2026-11-01'), started: d('2026-11-02'), resolved: d('2026-11-06') },
+      {
+        key: 'DM-1',
+        type: 'Story',
+        status: 'Done',
+        created: d('2026-11-01'),
+        started: d('2026-11-02'),
+        resolved: d('2026-11-06'),
+      },
     ]);
   });
 
   it('keeps an open issue with empty Resolved and Started (no warning)', () => {
     const result = toIssues([row({ status: 'To Do', resolved: '', started: '  ' })]);
     expect(result.skipped).toEqual([]);
-    expect(result.issues[0]).toEqual({ key: 'DM-1', type: 'Story', status: 'To Do', created: d('2026-11-01') });
+    expect(result.issues[0]).toEqual({
+      key: 'DM-1',
+      type: 'Story',
+      status: 'To Do',
+      created: d('2026-11-01'),
+    });
     expect(result.issues[0]).not.toHaveProperty('resolved');
     expect(result.issues[0]).not.toHaveProperty('started');
   });
@@ -44,13 +61,17 @@ describe('toIssues: kept rows', () => {
   });
 
   it('keeps Started earlier than Created (work can start before the ticket is logged)', () => {
-    const result = toIssues([row({ created: '2026-11-05', started: '2026-11-01', resolved: '2026-11-06' })]);
+    const result = toIssues([
+      row({ created: '2026-11-05', started: '2026-11-01', resolved: '2026-11-06' }),
+    ]);
     expect(result.skipped).toEqual([]);
     expect(result.issues).toHaveLength(1);
   });
 
   it('keeps same-day Created, Started and Resolved', () => {
-    const result = toIssues([row({ created: '2026-11-05', started: '2026-11-05', resolved: '2026-11-05' })]);
+    const result = toIssues([
+      row({ created: '2026-11-05', started: '2026-11-05', resolved: '2026-11-05' }),
+    ]);
     expect(result.issues).toHaveLength(1);
   });
 
@@ -74,8 +95,16 @@ describe('toIssues: skipped rows (plan.md §4.3)', () => {
     ['Resolved not a date', { resolved: '31.02.2026' }, 'invalid-resolved'],
     ['Started not a date', { resolved: '2026-11-06', started: '2026-13-01' }, 'invalid-started'],
     ['Started not a date on an open issue', { started: 'tbd' }, 'invalid-started'],
-    ['Resolved before Created', { created: '2026-11-05', resolved: '2026-11-04' }, 'resolved-before-created'],
-    ['Started after Resolved', { resolved: '2026-11-04', started: '2026-11-05' }, 'started-after-resolved'],
+    [
+      'Resolved before Created',
+      { created: '2026-11-05', resolved: '2026-11-04' },
+      'resolved-before-created',
+    ],
+    [
+      'Started after Resolved',
+      { resolved: '2026-11-04', started: '2026-11-05' },
+      'started-after-resolved',
+    ],
   ])('%s → %s', (_, fields, reason) => {
     const r = row({ key: 'DM-9', ...fields });
     const result = toIssues([r]);

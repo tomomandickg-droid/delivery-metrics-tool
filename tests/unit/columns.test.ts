@@ -10,13 +10,22 @@ const ALL = [...REQUIRED_COLUMNS];
 
 describe('normalizeHeader', () => {
   it('removes a byte-order mark, trims, collapses spaces and lowercases', () => {
-    expect(normalizeHeader('﻿  Issue   KEY ')).toBe('issue key');
+    expect(normalizeHeader('\uFEFF  Issue   KEY ')).toBe('issue key');
   });
 });
 
 describe('matchColumns', () => {
   it('finds every column in any order among other columns', () => {
-    const result = matchColumns(['Summary', 'Started', 'Status', 'Issue key', 'Priority', 'Resolved', 'Created', 'Issue Type']);
+    const result = matchColumns([
+      'Summary',
+      'Started',
+      'Status',
+      'Issue key',
+      'Priority',
+      'Resolved',
+      'Created',
+      'Issue Type',
+    ]);
     expect(result).toEqual({
       ok: true,
       indexes: { 'Issue key': 3, 'Issue Type': 7, Status: 2, Created: 6, Resolved: 5, Started: 1 },
@@ -24,7 +33,9 @@ describe('matchColumns', () => {
   });
 
   it('ignores case and spaces', () => {
-    expect(matchColumns(['issue KEY', ' issue type ', 'STATUS', 'created', 'resolved', 'started']).ok).toBe(true);
+    expect(
+      matchColumns(['issue KEY', ' issue type ', 'STATUS', 'created', 'resolved', 'started']).ok,
+    ).toBe(true);
   });
 
   it('accepts "Custom field (Started)" for Started', () => {

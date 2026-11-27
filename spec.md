@@ -111,6 +111,22 @@ All durations are in **calendar days**, counted inclusively: both the start day 
   - The coverage limit is in place, but it can't fail yet because `src/domain/` is still empty. It starts to apply from task 5.
   - First CI run on GitHub passed in 35 s (lint, type check, tests, build, smoke test).
   - Blocking merges to main has to be set in the GitHub repository settings by the owner. The steps are in the README.
+- Task 4 check, 27 Nov 2026: PR #1 contained a deliberately failing test. GitHub marked it BLOCKED (required check `ci` failed), and it was closed without merging. Note: the protection does not include administrators, so the repository owner can still bypass it.
+- Phase 2 (calculation code), 27 Nov 2026:
+  - Because main is protected, each phase from now on goes through its own pull request.
+  - Added `src/domain/`: dates, reporting window, CSV and column checks, rows to issues, percentiles, the four metrics, filter and `computeDashboard`. 203 tests pass, with 100% line, branch, function and statement coverage of `src/domain/`.
+  - Duplicate keys, clarified: a row is a duplicate only if an earlier row with that key was kept. If the earlier row was skipped for a bad date, the later row is kept.
+  - The missing-column cases are tested with CSV text inside the tests, instead of separate `missing-*.csv` files as plan.md §3 listed.
+  - The lead-time histogram grouping (plan.md §6.6) is calculation code but belongs to the chart. It will be added as a tested domain function with task 20.
+  - A PR branch runs CI twice, once for the push and once for the pull request. This is harmless. Limiting push runs to main would halve it.
 - Where the AI got it wrong, and why
+  - Two expected values I calculated by hand for the tests were wrong. The code was right, and the failing tests caught the mistakes:
+    - the window start for 13 Jan 2027 (12 Oct instead of 19 Oct)
+    - PERCENTILE.INC of [1, 1, 1, 9] at 85% (6.6 instead of 5.4)
+
+    Hand calculations need checking too, which is why the manual fixture in task 14 needs review.
+
+  - The invalid-CSV error message gave a row number one too high, because Papa Parse counts rows from 0 including the header. A test caught it before commit.
+  - The tool that writes files turned the text escape for the byte-order mark into the invisible character itself. ESLint flagged it. My first clean-up script used PowerShell's `StartsWith`, which ignores that character, so it removed the first character of 33 files. Nothing damaged was committed: the files were restored from git, and the fix was redone with an exact character check.
 - What had to be changed in this spec after the first build
 - Time spent per step

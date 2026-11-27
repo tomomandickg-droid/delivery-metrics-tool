@@ -26,7 +26,11 @@ describe('filterByTypes', () => {
   });
 
   it('keeps several types at once, in the original order', () => {
-    expect(filterByTypes(issues, new Set(['Bug', 'Story'])).map((i) => i.key)).toEqual(['S1', 'B1', 'S2']);
+    expect(filterByTypes(issues, new Set(['Bug', 'Story'])).map((i) => i.key)).toEqual([
+      'S1',
+      'B1',
+      'S2',
+    ]);
   });
 
   it('keeps nothing when no type is selected', () => {

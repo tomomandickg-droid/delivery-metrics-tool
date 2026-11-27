@@ -6,7 +6,13 @@ vi.mock('papaparse', () => ({
   default: {
     parse: () => ({
       data: [],
-      errors: [{ type: 'Quotes', code: 'InvalidQuotes', message: 'Trailing quote on quoted field is malformed' }],
+      errors: [
+        {
+          type: 'Quotes',
+          code: 'InvalidQuotes',
+          message: 'Trailing quote on quoted field is malformed',
+        },
+      ],
       meta: {},
     }),
   },

@@ -152,8 +152,16 @@ describe('inclusiveDays (plan.md §4.1)', () => {
   });
 
   it('gives the same result for all three formats of the same dates', () => {
-    const start = [parseDate('01/Nov/26 9:00 AM')!, parseDate('2026-11-01')!, parseDate('1.11.2026.')!];
-    const end = [parseDate('06/Nov/26 5:00 PM')!, parseDate('2026-11-06')!, parseDate('6.11.2026.')!];
+    const start = [
+      parseDate('01/Nov/26 9:00 AM')!,
+      parseDate('2026-11-01')!,
+      parseDate('1.11.2026.')!,
+    ];
+    const end = [
+      parseDate('06/Nov/26 5:00 PM')!,
+      parseDate('2026-11-06')!,
+      parseDate('6.11.2026.')!,
+    ];
     for (let i = 0; i < 3; i++) {
       expect(inclusiveDays(start[i]!, end[i]!)).toBe(6);
     }

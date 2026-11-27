@@ -32,7 +32,7 @@ function fail(error: CsvError, message: string): CsvParseResult {
  * Papa Parse runs without header mode, because Jira repeats some headers (e.g. Sprint).
  */
 export function parseCsv(text: string): CsvParseResult {
-  const content = text.replace(/^﻿/, '');
+  const content = text.replace(/^\uFEFF/, '');
   if (content.trim() === '') {
     return fail({ kind: 'empty' }, 'The file is empty.');
   }
@@ -65,16 +65,14 @@ export function parseCsv(text: string): CsvParseResult {
 
   const i = columns.indexes;
   const cell = (row: readonly string[], index: number) => row[index] ?? '';
-  const rows = dataRows.map(
-    (row, n): RawRow => ({
-      rowNumber: n + 2,
-      key: cell(row, i['Issue key']).trim(),
-      type: cell(row, i['Issue Type']).trim(),
-      status: cell(row, i.Status).trim(),
-      created: cell(row, i.Created),
-      resolved: cell(row, i.Resolved),
-      started: cell(row, i.Started),
-    }),
-  );
+  const rows = dataRows.map((row, n): RawRow => ({
+    rowNumber: n + 2,
+    key: cell(row, i['Issue key']).trim(),
+    type: cell(row, i['Issue Type']).trim(),
+    status: cell(row, i.Status).trim(),
+    created: cell(row, i.Created),
+    resolved: cell(row, i.Resolved),
+    started: cell(row, i.Started),
+  }));
   return { ok: true, rows };
 }

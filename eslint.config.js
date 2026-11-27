@@ -18,5 +18,12 @@ export default tseslint.config(
       ...reactHooks.configs.recommended.rules,
     },
   },
+  {
+    // In tests, `value!` after an expectation is fine: if it were null the test fails anyway.
+    files: ['tests/**/*.{ts,tsx}', 'e2e/**/*.ts'],
+    rules: {
+      '@typescript-eslint/no-non-null-assertion': 'off',
+    },
+  },
   prettier,
 );

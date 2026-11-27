@@ -23,7 +23,15 @@ describe('parseCsv: valid files', () => {
           resolved: '06/Nov/26 5:00 PM',
           started: '02/Nov/26 10:00 AM',
         },
-        { rowNumber: 3, key: 'DM-2', type: 'Bug', status: 'To Do', created: '2026-11-03', resolved: '', started: '' },
+        {
+          rowNumber: 3,
+          key: 'DM-2',
+          type: 'Bug',
+          status: 'To Do',
+          created: '2026-11-03',
+          resolved: '',
+          started: '',
+        },
       ],
     });
   });
@@ -35,7 +43,7 @@ describe('parseCsv: valid files', () => {
   });
 
   it('accepts a byte-order mark, Windows line endings and blank lines', () => {
-    const csv = `﻿${HEADER}\r\nDM-1,Story,Done,2026-11-01,,\r\n\r\n,,,,,\r\nDM-2,Bug,Done,2026-11-02,,\r\n`;
+    const csv = `\uFEFF${HEADER}\r\nDM-1,Story,Done,2026-11-01,,\r\n\r\n,,,,,\r\nDM-2,Bug,Done,2026-11-02,,\r\n`;
     const result = parseCsv(csv);
     expect(result.ok && result.rows.map((r) => r.key)).toEqual(['DM-1', 'DM-2']);
   });
@@ -45,13 +53,22 @@ describe('parseCsv: valid files', () => {
     expect(result).toEqual({
       ok: true,
       rows: [
-        { rowNumber: 2, key: 'DM-1', type: 'Story', status: 'In Progress', created: '2026-11-01', resolved: '', started: '' },
+        {
+          rowNumber: 2,
+          key: 'DM-1',
+          type: 'Story',
+          status: 'In Progress',
+          created: '2026-11-01',
+          resolved: '',
+          started: '',
+        },
       ],
     });
   });
 
   it('uses "Custom field (Started)" and the first of repeated headers', () => {
-    const csv = 'Issue key,Sprint,Sprint,Issue Type,Status,Created,Resolved,Custom field (Started)\nDM-1,S1,S2,Task,Done,2026-11-01,2026-11-03,2026-11-02';
+    const csv =
+      'Issue key,Sprint,Sprint,Issue Type,Status,Created,Resolved,Custom field (Started)\nDM-1,S1,S2,Task,Done,2026-11-01,2026-11-03,2026-11-02';
     const result = parseCsv(csv);
     expect(result.ok && result.rows[0]?.started).toBe('2026-11-02');
   });
@@ -59,11 +76,15 @@ describe('parseCsv: valid files', () => {
 
 describe('parseCsv: file errors', () => {
   it.each(['', '   \n  \n'])('reports an empty file (%j)', (text) => {
-    expect(parseCsv(text)).toEqual({ ok: false, error: { kind: 'empty' }, message: 'The file is empty.' });
+    expect(parseCsv(text)).toEqual({
+      ok: false,
+      error: { kind: 'empty' },
+      message: 'The file is empty.',
+    });
   });
 
   it('reports a file with only a byte-order mark as empty', () => {
-    expect(parseCsv('﻿')).toMatchObject({ ok: false, error: { kind: 'empty' } });
+    expect(parseCsv('\uFEFF')).toMatchObject({ ok: false, error: { kind: 'empty' } });
   });
 
   it('reports a header with no issue rows', () => {
@@ -108,6 +129,9 @@ describe('parseCsv: missing columns (acceptance criterion 2)', () => {
   });
 
   it('reports missing columns before "no data" for a header-only file', () => {
-    expect(parseCsv('Issue key,Status\n')).toMatchObject({ ok: false, error: { kind: 'missing-columns' } });
+    expect(parseCsv('Issue key,Status\n')).toMatchObject({
+      ok: false,
+      error: { kind: 'missing-columns' },
+    });
   });
 });
