@@ -5,8 +5,10 @@ import type { CalendarDate } from '../domain/types';
 import { WINDOW_WEEKS } from '../domain/window';
 import { DataNotes } from './DataNotes';
 import { formatRange, pluralIssues } from './format';
+import { LeadTimeChart } from './LeadTimeChart';
 import type { LoadedData } from './loadData';
 import { MetricCards } from './MetricCards';
+import { ThroughputChart } from './ThroughputChart';
 
 interface DashboardViewProps {
   readonly data: LoadedData;
@@ -52,6 +54,11 @@ export function DashboardView({ data, today }: DashboardViewProps) {
       )}
 
       <MetricCards dashboard={dashboard} noSelection={noSelection} />
+
+      <div className="charts">
+        <ThroughputChart throughput={dashboard.throughput} noData={noSelection} />
+        <LeadTimeChart leadTime={dashboard.leadTime} noData={noSelection} />
+      </div>
     </>
   );
 }
