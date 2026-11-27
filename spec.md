@@ -138,7 +138,7 @@ All durations are in **calendar days**, counted inclusively: both the start day 
   - Four metric cards, the reporting window shown in words, and empty states: no file yet, nothing resolved in the window (with the latest Resolved date), and no type selected.
   - A 12-week throughput chart and a lead time histogram with median and 85th-percentile lines.
   - A multi-select Issue Type filter with Select all and Clear.
-  - Checked by 69 component tests, which compare the cards, the chart data and the filter results with the hand calculation in `manual-small.expected.md`, plus a manual check in a real browser. 344 tests in total.
+  - Checked by 38 component tests, which compare the cards, the chart data and the filter results with the hand calculation in `manual-small.expected.md`, plus unit tests for the UI helpers and a manual check in a real browser. 344 tests in total.
   - Each chart has a hidden data table for screen readers. The component tests read these tables, because charts have no size in the test environment.
   - The plan's `SkippedRows.tsx` became `DataNotes.tsx`, because it now also lists adjusted issues.
   - The lead-time histogram grouping is in `src/domain/histogram.ts`, at 100% coverage: 1-day bars up to 30 days, then 2, 5 or 7 days per bar, at most 30 bars.
