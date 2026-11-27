@@ -8,6 +8,8 @@ import {
   type LoadedData,
   type LoadError,
 } from './loadData';
+import { DataNotes } from './DataNotes';
+import { ErrorBanner } from './ErrorBanner';
 import { UploadArea } from './UploadArea';
 
 type State = { readonly kind: 'empty' } | { readonly kind: 'loading' } | LoadedData | LoadError;
@@ -47,10 +49,15 @@ export function App({ today = todayLocal(new Date()), loadSampleCsv = fetchSampl
         onLoadSample={() => void load(SAMPLE_FILE_NAME, true, loadSampleCsv)}
       />
 
+      {state.kind === 'error' && <ErrorBanner fileName={state.fileName} message={state.message} />}
+
       {state.kind === 'loaded' && (
-        <p className="source">
-          <strong>{state.fileName}</strong>: {state.issues.length} issues
-        </p>
+        <>
+          <p className="source">
+            <strong>{state.fileName}</strong>: {state.issues.length} issues
+          </p>
+          <DataNotes skipped={state.skipped} startedBeforeCreated={state.startedBeforeCreated} />
+        </>
       )}
     </main>
   );
