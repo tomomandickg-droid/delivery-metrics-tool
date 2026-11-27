@@ -74,12 +74,24 @@ describe('cycleTime (plan.md §6.3)', () => {
     expect(result.median).toBe(3);
   });
 
-  it('allows Started before Created (cycle time longer than lead time)', () => {
-    const result = cycleTime(
-      [issue('a', { created: '2026-10-05', started: '2026-10-01', resolved: '2026-10-06' })],
-      window,
-    );
-    expect(result.values).toEqual([6]);
+  it('counts from Created when Started is before Created, so cycle time = lead time', () => {
+    const early = issue('a', {
+      created: '2026-10-05',
+      started: '2026-10-01',
+      resolved: '2026-10-06',
+    });
+    // Started 1 Oct is ignored; Created 5 Oct → Resolved 6 Oct = 2 days (not 6).
+    expect(cycleTime([early], window).values).toEqual([2]);
+    expect(leadTime([early], window).values).toEqual([2]);
+  });
+
+  it('uses Started as normal when it is on or after Created', () => {
+    const sameDay = issue('a', {
+      created: '2026-10-05',
+      started: '2026-10-05',
+      resolved: '2026-10-06',
+    });
+    expect(cycleTime([sameDay], window).values).toEqual([2]);
   });
 
   it('leaves out resolved issues without Started and counts them', () => {

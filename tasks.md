@@ -37,7 +37,7 @@ A task that adds calculation code is done only when its tests pass and `src/doma
 ## Phase 4 — UI
 
 17. **Upload.** Write `UploadArea.tsx` (drag-and-drop, file picker, "Load sample data") and connect it in `App.tsx` with today's date.
-18. **Errors and skipped rows.** Write `ErrorBanner.tsx` (the missing columns, named) and `SkippedRows.tsx` (the count, plus keys and reasons). Add component tests.
+18. **Errors and skipped rows.** Write `ErrorBanner.tsx` (the missing columns, named) and `SkippedRows.tsx` (the count, plus keys and reasons, and the "Started before Created … cycle time adjusted" list). Add component tests.
 19. **Metric cards.** Write `MetricCard.tsx` and the four cards, with the "No data" and "nothing resolved in the window" states (§5). Add component tests.
 20. **Charts.** Write `ThroughputChart.tsx` (12 weekly bars) and `LeadTimeChart.tsx` (histogram with median and 85th-percentile lines).
 21. **Issue Type filter.** Write `TypeFilter.tsx`: checkboxes with "Select all" and "Clear". Add a component test that selecting types updates every card and both charts.

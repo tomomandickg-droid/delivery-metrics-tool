@@ -10,6 +10,7 @@ How to check it yourself: open the CSV in Excel or Google Sheets and recalculate
 - **Days are counted inclusively**: days = (end − start) + 1. An issue created and resolved on the same day has 1 day.
 - **Reporting window**: weeks run Monday to Sunday. The current week (Mon 23 – Sun 29 Nov) is not finished, so it is excluded. The window is the 12 weeks before it: **Mon 31 Aug – Sun 22 Nov 2026**.
 - **Lead time** = Created → Resolved. **Cycle time** = Started → Resolved. Both use only issues whose **Resolved date is in the window**.
+- **Started before Created**: the issue is kept, and its cycle time is counted from Created, so it equals the lead time. The dashboard lists these issues (rule changed 27 Nov 2026).
 - **WIP** = has a Started date and no Resolved date. The window is not used for WIP.
 - **Percentiles** use the Excel `PERCENTILE.INC` method: sort the values x₀ … xₙ₋₁, set h = (n − 1) × p, then the result is x⌊h⌋ + (h − ⌊h⌋) × (x⌈h⌉ − x⌊h⌋).
 
@@ -43,6 +44,12 @@ The spreadsheet row number counts the header as row 1.
 | 19  | MS-17 | Resolved `2026-13-01` is not a real date (month 13)                |
 | 20  | MS-18 | Started `tbd` is not a date                                        |
 
+## 2b. Adjusted issues (1)
+
+| Row | Key  | What is adjusted                                                         |
+| --- | ---- | ------------------------------------------------------------------------ |
+| 8   | MS-7 | Started 25 Sep is before Created 28 Sep: cycle time counted from Created |
+
 ## 3. Kept issues (13)
 
 The dates are written in the three supported formats. Here they are converted to plain dates.
@@ -63,19 +70,19 @@ The dates are written in the three supported formats. Here they are converted to
 | MS-12 | Story | In Progress | 1 Jul   | 15 Jul  | —        | open                 |
 | MS-13 | Task  | To Do       | 20 Nov  | —       | —        | open (backlog)       |
 
-Note on MS-7: it was started on 25 Sep, three days before it was created on 28 Sep. That is allowed, because work can start before the ticket is logged.
+Note on MS-7: it was started on 25 Sep, three days before it was created on 28 Sep. It is kept, but its cycle time is counted from Created (28 Sep), not from Started. The dashboard lists it: "Started before Created: 1 issue, cycle time adjusted (MS-7)". MS-7 is in row 8 and is the only such issue in the file.
 
 ## 4. Per-issue lead time and cycle time (issues resolved in the window)
 
-| Key  | Lead time: Created → Resolved    | Cycle time: Started → Resolved  |
-| ---- | -------------------------------- | ------------------------------- |
-| MS-1 | 1 Nov → 6 Nov: 5 + 1 = **6**     | 2 Nov → 6 Nov: 4 + 1 = **5**    |
-| MS-2 | 10 Nov → 10 Nov: 0 + 1 = **1**   | 10 Nov → 10 Nov: 0 + 1 = **1**  |
-| MS-3 | 15 Sep → 2 Oct: 17 + 1 = **18**  | 21 Sep → 2 Oct: 11 + 1 = **12** |
-| MS-4 | 20 Aug → 31 Aug: 11 + 1 = **12** | 28 Aug → 31 Aug: 3 + 1 = **4**  |
-| MS-5 | 18 Nov → 22 Nov: 4 + 1 = **5**   | no Started date, so left out    |
-| MS-6 | 1 Oct → 20 Oct: 19 + 1 = **20**  | 12 Oct → 20 Oct: 8 + 1 = **9**  |
-| MS-7 | 28 Sep → 2 Oct: 4 + 1 = **5**    | 25 Sep → 2 Oct: 7 + 1 = **8**   |
+| Key  | Lead time: Created → Resolved    | Cycle time: Started → Resolved                                                 |
+| ---- | -------------------------------- | ------------------------------------------------------------------------------ |
+| MS-1 | 1 Nov → 6 Nov: 5 + 1 = **6**     | 2 Nov → 6 Nov: 4 + 1 = **5**                                                   |
+| MS-2 | 10 Nov → 10 Nov: 0 + 1 = **1**   | 10 Nov → 10 Nov: 0 + 1 = **1**                                                 |
+| MS-3 | 15 Sep → 2 Oct: 17 + 1 = **18**  | 21 Sep → 2 Oct: 11 + 1 = **12**                                                |
+| MS-4 | 20 Aug → 31 Aug: 11 + 1 = **12** | 28 Aug → 31 Aug: 3 + 1 = **4**                                                 |
+| MS-5 | 18 Nov → 22 Nov: 4 + 1 = **5**   | no Started date, so left out                                                   |
+| MS-6 | 1 Oct → 20 Oct: 19 + 1 = **20**  | 12 Oct → 20 Oct: 8 + 1 = **9**                                                 |
+| MS-7 | 28 Sep → 2 Oct: 4 + 1 = **5**    | from Created (Started 25 Sep is before Created): 28 Sep → 2 Oct: 4 + 1 = **5** |
 
 How the day differences are counted:
 
@@ -84,7 +91,6 @@ How the day differences are counted:
 - 20 Aug → 31 Aug: 11.
 - 1 Oct → 20 Oct: 19.
 - 28 Sep → 2 Oct: 2 + 2 = 4.
-- 25 Sep → 2 Oct: 5 + 2 = 7.
 
 ## 5. Results for all issue types
 
@@ -107,9 +113,9 @@ Sorted values: 1, 5, 5, 6, 12, 18, 20 (n = **7**).
 
 ### Cycle time
 
-Sorted values: 1, 4, 5, 8, 9, 12 (n = **6**).
+Sorted values: 1, 4, 5, 5, 9, 12 (n = **6**). MS-7 counts as 5.
 
-- Median: h = 5 × 0.5 = 2.5, so x₂ + 0.5 × (x₃ − x₂) = 5 + 0.5 × 3 = **6.5**.
+- Median: h = 5 × 0.5 = 2.5, so x₂ + 0.5 × (x₃ − x₂) = 5 + 0.5 × 0 = **5**.
 - 85th percentile: h = 5 × 0.85 = 4.25, so x₄ + 0.25 × (x₅ − x₄) = 9 + 0.25 × 3 = 9.75, shown as **9.8**.
 - Resolved in the window without a Started date: **1** (MS-5).
 
@@ -147,8 +153,8 @@ In the window: MS-1, MS-3, MS-4, MS-6 and MS-7.
 - **Lead time**: sorted values 5, 6, 12, 18, 20 (n = 5).
   - Median: h = 2, so **12**.
   - 85th percentile: h = 4 × 0.85 = 3.4, so 18 + 0.4 × 2 = **18.8**.
-- **Cycle time**: sorted values 4, 5, 8, 9, 12 (n = 5).
-  - Median: **8**.
+- **Cycle time**: sorted values 4, 5, 5, 9, 12 (n = 5). MS-7 counts as 5.
+  - Median: h = 2, so **5**.
   - 85th percentile: h = 3.4, so 9 + 0.4 × 3 = **10.2**.
   - Without a Started date: **0**.
 - **WIP**: In Progress **2** (MS-10, MS-12). MS-13 is a Task but backlog, so it is not counted.

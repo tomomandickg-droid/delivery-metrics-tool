@@ -37,6 +37,8 @@ Supported date formats (in Created, Resolved and Started):
 
 Rows with an invalid date are skipped. Impossible date order also counts as invalid: Resolved before Created, or Started after Resolved. A row that repeats an earlier issue key is skipped too. The dashboard shows how many rows were skipped and lists their issue keys.
 
+Started before Created is not skipped. The issue is kept and its cycle time is counted from Created, so it equals the lead time. The dashboard lists these issues the same way as skipped rows, e.g. "Started before Created: 1 issue, cycle time adjusted (MS-7)".
+
 The "Load sample data" button moves the sample's dates forward by whole weeks so that the sample always falls inside the reporting window. A file uploaded by hand always uses its real dates.
 
 ## Reporting window
@@ -49,7 +51,7 @@ Throughput, lead time and cycle time use a **12-week window**. Weeks run Monday 
 
 1. **Throughput**: number of issues resolved per week in the window. The card shows the average per week over the 12 weeks.
 2. **Lead time**: days from Created to Resolved, per issue, for issues resolved in the window. Show the median and the 85th percentile.
-3. **Cycle time**: days from Started to Resolved, for issues resolved in the window. Show the median and the 85th percentile.
+3. **Cycle time**: days from Started to Resolved, for issues resolved in the window. Show the median and the 85th percentile. If Started is before Created, count from Created instead.
 4. **Work in progress**: issues with a Started date and no Resolved date, grouped by status. Backlog items (no Started date, no Resolved date) are not work in progress.
 
 Issues without a Resolved date are excluded from throughput, lead time and cycle time.
@@ -67,6 +69,7 @@ All durations are in **calendar days**, counted inclusively: both the start day 
 - Chart: lead time distribution
 - Filter by Issue Type; several types can be selected at once
 - List of skipped rows (count and issue keys)
+- List of issues with Started before Created (count and issue keys; cycle time adjusted)
 
 ## Acceptance criteria
 
@@ -120,6 +123,7 @@ All durations are in **calendar days**, counted inclusively: both the start day 
   - The lead-time histogram grouping (plan.md §6.6) is calculation code but belongs to the chart. It will be added as a tested domain function with task 20.
   - A PR branch runs CI twice, once for the push and once for the pull request. This is harmless. Limiting push runs to main would halve it.
 - Task 14 (manual fixture), 27 Nov 2026: `tests/fixtures/manual-small.csv` has 19 rows: 13 kept issues and one row for each of the 6 skip reasons. It uses all three date formats, a quoted summary with a comma, and the columns in a different order from Jira's. `manual-small.expected.md` shows the hand calculation for today = 27 Nov 2026, and `manualFixture.test.ts` checks the code against it (31 checks, all passing on the first run). The fixture has 19 rows instead of the planned ~15, so that every rule is covered. Waiting for the owner's review of the hand calculation before tasks 15–16.
+- Rule change after the task 14 review, 27 Nov 2026: Started before Created now counts cycle time from Created, so cycle time equals lead time. Before, Started was used as is, which made cycle time longer than lead time. These issues are kept, not skipped, and the dashboard lists them like skipped rows: "Started before Created: 1 issue, cycle time adjusted (MS-7)". The CSV value is kept as is; only the cycle time calculation changes. In the fixture, MS-7's cycle time goes from 8 to 5. The cycle-time median goes from 6.5 to 5 for all types, and from 8 to 5 for Story + Task. The 85th percentiles did not change. Open issues with Started before Created are listed too, since their cycle time will be adjusted once they are resolved.
 - Where the AI got it wrong, and why
   - Two expected values I calculated by hand for the tests were wrong. The code was right, and the failing tests caught the mistakes:
     - the window start for 13 Jan 2027 (12 Oct instead of 19 Oct)

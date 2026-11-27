@@ -3,9 +3,12 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { computeDashboard } from '../../src/domain/computeDashboard';
 import { formatIso, inclusiveDays } from '../../src/domain/dates';
+import { cycleTime } from '../../src/domain/metrics/cycleTime';
+import { leadTime } from '../../src/domain/metrics/leadTime';
 import { parseCsv } from '../../src/domain/parseCsv';
 import { round1 } from '../../src/domain/stats';
-import { toIssues } from '../../src/domain/toIssues';
+import { startedBeforeCreatedText, toIssues } from '../../src/domain/toIssues';
+import { reportingWindow } from '../../src/domain/window';
 import { d } from './helpers';
 
 // Every expected number below comes from tests/fixtures/manual-small.expected.md.
@@ -14,7 +17,7 @@ const TODAY = d('2026-11-27');
 
 const parsed = parseCsv(csv);
 if (!parsed.ok) throw new Error(`Fixture did not parse: ${parsed.message}`);
-const { issues, skipped } = toIssues(parsed.rows);
+const { issues, skipped, startedBeforeCreated } = toIssues(parsed.rows);
 const ALL_TYPES = new Set(['Story', 'Bug', 'Task']);
 
 const byKey = (key: string) => {
@@ -86,11 +89,22 @@ describe('manual-small.csv §4: per-issue lead and cycle time', () => {
     ['MS-4', 12, 4],
     ['MS-5', 5, null],
     ['MS-6', 20, 9],
-    ['MS-7', 5, 8],
+    ['MS-7', 5, 5], // Started before Created: counted from Created, so cycle = lead
   ])('%s: lead %i, cycle %s', (key, lead, cycle) => {
     const i = byKey(key);
+    const window = reportingWindow(TODAY);
     expect(inclusiveDays(i.created, i.resolved!)).toBe(lead);
-    expect(i.started === undefined ? null : inclusiveDays(i.started, i.resolved!)).toBe(cycle);
+    expect(leadTime([i], window).values).toEqual([lead]);
+    expect(cycleTime([i], window).values).toEqual(cycle === null ? [] : [cycle]);
+  });
+});
+
+describe('manual-small.csv §2b: Started before Created', () => {
+  it('lists MS-7 (row 8) as adjusted, not skipped', () => {
+    expect(startedBeforeCreated).toEqual([{ rowNumber: 8, key: 'MS-7' }]);
+    expect(startedBeforeCreatedText(startedBeforeCreated)).toBe(
+      'Started before Created: 1 issue, cycle time adjusted (MS-7)',
+    );
   });
 });
 
@@ -115,9 +129,9 @@ describe('manual-small.csv §5: all issue types', () => {
     expect(r.leadTime.p85).toBeCloseTo(18.2, 10);
   });
 
-  it('cycle time: 1,4,5,8,9,12 → median 6.5, 85th 9.75 (shown 9.8), 1 without Started', () => {
-    expect(r.cycleTime.values).toEqual([1, 4, 5, 8, 9, 12]);
-    expect(r.cycleTime.median).toBe(6.5);
+  it('cycle time: 1,4,5,5,9,12 → median 5, 85th 9.75 (shown 9.8), 1 without Started', () => {
+    expect(r.cycleTime.values).toEqual([1, 4, 5, 5, 9, 12]);
+    expect(r.cycleTime.median).toBe(5);
     expect(r.cycleTime.p85).toBeCloseTo(9.75, 10);
     expect(round1(r.cycleTime.p85!)).toBe(9.8);
     expect(r.cycleTime.withoutStarted).toBe(1);
@@ -161,8 +175,8 @@ describe('manual-small.csv §6: Issue Type filter', () => {
     expect(r.leadTime.values).toEqual([5, 6, 12, 18, 20]);
     expect(r.leadTime.median).toBe(12);
     expect(r.leadTime.p85).toBeCloseTo(18.8, 10);
-    expect(r.cycleTime.values).toEqual([4, 5, 8, 9, 12]);
-    expect(r.cycleTime.median).toBe(8);
+    expect(r.cycleTime.values).toEqual([4, 5, 5, 9, 12]);
+    expect(r.cycleTime.median).toBe(5);
     expect(r.cycleTime.p85).toBeCloseTo(10.2, 10);
     expect(r.cycleTime.withoutStarted).toBe(0);
     expect(r.wip.byStatus).toEqual([{ status: 'In Progress', count: 2 }]);

@@ -1,6 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import type { RawRow } from '../../src/domain/parseCsv';
-import { skippedRowLabel, skipReasonText, toIssues } from '../../src/domain/toIssues';
+import {
+  skippedRowLabel,
+  skipReasonText,
+  startedBeforeCreatedText,
+  toIssues,
+} from '../../src/domain/toIssues';
 import type { SkipReason } from '../../src/domain/types';
 import { d } from './helpers';
 
@@ -60,12 +65,39 @@ describe('toIssues: kept rows', () => {
     expect(result.issues[0]).not.toHaveProperty('started');
   });
 
-  it('keeps Started earlier than Created (work can start before the ticket is logged)', () => {
-    const result = toIssues([
-      row({ created: '2026-11-05', started: '2026-11-01', resolved: '2026-11-06' }),
-    ]);
+  it('keeps Started earlier than Created and lists it as adjusted (not skipped)', () => {
+    const r = row({
+      key: 'DM-7',
+      created: '2026-11-05',
+      started: '2026-11-01',
+      resolved: '2026-11-06',
+    });
+    const result = toIssues([r]);
     expect(result.skipped).toEqual([]);
     expect(result.issues).toHaveLength(1);
+    // The raw Started date is kept; cycle time adjusts it (see leadCycleTime.test.ts).
+    expect(result.issues[0]?.started).toBe(d('2026-11-01'));
+    expect(result.startedBeforeCreated).toEqual([{ rowNumber: r.rowNumber, key: 'DM-7' }]);
+  });
+
+  it('also lists an open issue whose Started is before Created', () => {
+    const r = row({ key: 'DM-8', created: '2026-11-05', started: '2026-11-04' });
+    expect(toIssues([r]).startedBeforeCreated).toEqual([{ rowNumber: r.rowNumber, key: 'DM-8' }]);
+  });
+
+  it('does not list Started on the same day as Created, or later', () => {
+    const result = toIssues([
+      row({ key: 'A', created: '2026-11-05', started: '2026-11-05' }),
+      row({ key: 'B', created: '2026-11-05', started: '2026-11-06' }),
+      row({ key: 'C', created: '2026-11-05' }),
+    ]);
+    expect(result.startedBeforeCreated).toEqual([]);
+  });
+
+  it('does not list a skipped row, even if its Started is before Created', () => {
+    const first = row({ key: 'DM-1' });
+    const dup = row({ key: 'DM-1', created: '2026-11-05', started: '2026-11-01' });
+    expect(toIssues([first, dup]).startedBeforeCreated).toEqual([]);
   });
 
   it('keeps same-day Created, Started and Resolved', () => {
@@ -164,5 +196,18 @@ describe('skipped row display helpers', () => {
   it('labels a skipped row by key, or by row number when the key is empty', () => {
     expect(skippedRowLabel({ rowNumber: 17, key: 'DM-4', reason: 'invalid-created' })).toBe('DM-4');
     expect(skippedRowLabel({ rowNumber: 17, key: '', reason: 'invalid-created' })).toBe('row 17');
+  });
+
+  it('summarises Started-before-Created issues', () => {
+    expect(startedBeforeCreatedText([])).toBeNull();
+    expect(startedBeforeCreatedText([{ rowNumber: 8, key: 'MS-7' }])).toBe(
+      'Started before Created: 1 issue, cycle time adjusted (MS-7)',
+    );
+    expect(
+      startedBeforeCreatedText([
+        { rowNumber: 8, key: 'MS-7' },
+        { rowNumber: 12, key: '' },
+      ]),
+    ).toBe('Started before Created: 2 issues, cycle time adjusted (MS-7, row 12)');
   });
 });
