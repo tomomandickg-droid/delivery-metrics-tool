@@ -8,7 +8,7 @@ import {
   type LoadedData,
   type LoadError,
 } from './loadData';
-import { DataNotes } from './DataNotes';
+import { DashboardView } from './Dashboard';
 import { ErrorBanner } from './ErrorBanner';
 import { UploadArea } from './UploadArea';
 
@@ -23,9 +23,12 @@ interface AppProps {
 
 export function App({ today = todayLocal(new Date()), loadSampleCsv = fetchSampleCsv }: AppProps) {
   const [state, setState] = useState<State>({ kind: 'empty' });
+  // A new number for every load, so the dashboard (and its filter) starts fresh per file.
+  const [loadCount, setLoadCount] = useState(0);
 
   const load = async (fileName: string, isSample: boolean, read: () => Promise<string>) => {
     setState({ kind: 'loading' });
+    setLoadCount((n) => n + 1);
     let text: string;
     try {
       text = await read();
@@ -51,13 +54,17 @@ export function App({ today = todayLocal(new Date()), loadSampleCsv = fetchSampl
 
       {state.kind === 'error' && <ErrorBanner fileName={state.fileName} message={state.message} />}
 
-      {state.kind === 'loaded' && (
-        <>
-          <p className="source">
-            <strong>{state.fileName}</strong>: {state.issues.length} issues
-          </p>
-          <DataNotes skipped={state.skipped} startedBeforeCreated={state.startedBeforeCreated} />
-        </>
+      {state.kind === 'loaded' && <DashboardView key={loadCount} data={state} today={today} />}
+
+      {state.kind === 'empty' && (
+        <div className="empty-state">
+          <p>Upload a Jira CSV export, or load the sample data to try the tool. You will see:</p>
+          <ul>
+            <li>throughput per week and its 12-week average</li>
+            <li>lead time and cycle time: median and 85th percentile</li>
+            <li>work in progress by status</li>
+          </ul>
+        </div>
       )}
     </main>
   );
