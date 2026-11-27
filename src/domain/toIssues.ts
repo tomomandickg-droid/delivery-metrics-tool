@@ -94,7 +94,7 @@ export function skipReasonText(reason: SkipReason): string {
 }
 
 /** The issue key, or "row 17" when the key cell is empty. */
-export function skippedRowLabel(row: Pick<SkippedRow, 'rowNumber' | 'key'>): string {
+export function skippedRowLabel(row: SkippedRow | AdjustedIssue): string {
   return row.key === '' ? `row ${row.rowNumber}` : row.key;
 }
 
