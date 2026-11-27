@@ -12,7 +12,7 @@ Delivery managers track throughput, lead time and cycle time by hand in spreadsh
 ## Scope (v1)
 
 Input: a Jira CSV export of issues.
-Output: a local web dashboard with delivery metrics.
+Output: a web dashboard with delivery metrics. It runs entirely in the browser, locally or from the public link on GitHub Pages (https://tomomandickg-droid.github.io/delivery-metrics-tool/). Uploaded data never leaves the browser.
 
 Out of scope for v1: live Jira API connection, user accounts, multiple projects at once.
 
@@ -73,12 +73,25 @@ All durations are in **calendar days**, counted inclusively: both the start day 
 
 ## Acceptance criteria
 
-- [ ] Uploading a valid CSV shows all four metrics within 2 seconds for up to 5,000 issues (checked locally, not in CI)
-- [ ] Uploading a CSV with a missing column shows an error naming that column
-- [ ] Lead time and cycle time values match a manual calculation on the sample data
-- [ ] Filtering by one or more Issue Types updates all metrics and charts
-- [ ] Rows with invalid dates are skipped, and the dashboard shows their count and issue keys
-- [ ] Sample data file is included so anyone can try the tool
+- [x] Uploading a valid CSV shows all four metrics within 2 seconds for up to 5,000 issues (checked locally, not in CI)
+  - Evidence: `e2e/performance.local.spec.ts` (`npm run test:perf`). Three runs on the build machine on 27 Nov 2026 took 581, 505 and 480 ms from upload until all four cards were visible.
+- [x] Uploading a CSV with a missing column shows an error naming that column
+  - Evidence: `tests/unit/parseCsv.test.ts` and `tests/component/ErrorsAndNotes.test.tsx` cover each of the 6 columns on its own and several at once. The error banner names the column, e.g. `Missing required column: "Started"`.
+- [x] Lead time and cycle time values match a manual calculation on the sample data
+  - Evidence:
+    - The hand calculation in `tests/fixtures/manual-small.expected.md`, reviewed by the owner, checked by `manualFixture.test.ts`.
+    - Five sample issues checked by hand in `sample.test.ts`.
+    - The same values on screen, in `MetricCards.test.tsx` and `Charts.test.tsx`.
+    - The owner tried the sample and manual-small.csv in the app, and the values matched.
+- [x] Filtering by one or more Issue Types updates all metrics and charts
+  - Evidence: `tests/component/TypeFilter.test.tsx` covers Bug only, Story + Task, Clear and Select all, and checks all four cards and both charts against the hand calculation. The owner also tried it in the app.
+- [x] Rows with invalid dates are skipped, and the dashboard shows their count and issue keys
+  - Evidence: `tests/unit/toIssues.test.ts` (one test per skip reason) and `tests/component/ErrorsAndNotes.test.tsx`. The dashboard shows, for example, "6 rows skipped: MS-14, MS-15, …" with a reason for each row.
+- [x] Sample data file is included so anyone can try the tool
+  - Evidence:
+    - `public/sample-data/jira-sample.csv` and the **Load sample data** button, locally and on GitHub Pages.
+    - `sample.test.ts` checks that the file regenerates identically.
+    - `e2e/smoke.spec.ts` loads it in a real browser in CI.
 
 ## Quality gates
 
@@ -153,5 +166,23 @@ All durations are in **calendar days**, counted inclusively: both the start day 
 
   - The invalid-CSV error message gave a row number one too high, because Papa Parse counts rows from 0 including the header. A test caught it before commit.
   - The tool that writes files turned the text escape for the byte-order mark into the invisible character itself. ESLint flagged it. My first clean-up script used PowerShell's `StartsWith`, which ignores that character, so it removed the first character of 33 files. Nothing damaged was committed: the files were restored from git, and the fix was redone with an exact character check.
+- Phase 5 (browser checks and handover), 27 Nov 2026:
+  - The smoke test fixes the browser clock to 27 Nov 2026, loads the sample and checks the four cards and both charts.
+  - The local performance check uploads 5,000 generated issues; all four cards were visible in 480–581 ms over three runs.
+  - Scope change from the owner: publish on GitHub Pages so anyone can open the app from a link, with "Load sample data" working there. This became task 23, and README/acceptance moved to task 24. Vite builds with relative paths (`base: './'`), so one build works locally and under `/delivery-metrics-tool/`. Before merging, this was checked by serving the build under that path and loading the sample in a browser. A workflow deploys every push to main. Pages was turned on with GitHub Actions as the source. The link goes live after the first deploy from main.
 - What had to be changed in this spec after the first build
-- Time spent per step
+  - **Started before Created** (after the task 14 review): no longer used as is. Cycle time counts from Created, and these issues are listed on the dashboard.
+  - **Output**: "a local web dashboard" became a dashboard that also has a public link on GitHub Pages. It still runs only in the browser.
+  - **Acceptance criteria**: evidence added for each criterion.
+
+  The earlier changes (Started column, reporting window, Done = Resolved, WIP definition, date formats, skip rules, multi-select filter, sample date shift, performance check out of CI) were decided at the plan reviews, before any code was written. They are listed above.
+
+- Time spent per step: approximate wall-clock time from commit times on 27 Nov 2026. It includes the AI's work and short waits; the owner's review time falls between phases.
+  - Spec review, plan and task list: before the first commit. Not measured by git; three plan revisions.
+  - Tool setup (Git, Node.js and GitHub CLI installed, GitHub sign-in): about 10 minutes before the first commit.
+  - Phase 1, project setup and CI: 19:49–19:55, about 6 minutes.
+  - Phase 2, calculation code (tasks 5–13), including the branch-protection check: 19:55–20:11, about 16 minutes. Merged 20:16.
+  - Phase 3, data (tasks 14–16), including the owner's fixture review and the rule change: 20:16–20:41, about 25 minutes. Merged 20:51.
+  - Phase 4, UI (tasks 17–21), including a check in the browser: 20:51–21:04, about 13 minutes. Merged 21:09.
+  - Phase 5, browser tests, GitHub Pages, README and acceptance review: 21:09 – about 21:25, about 16 minutes.
+  - In total, about 1 h 35 min from the first commit to the handover pull request.

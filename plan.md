@@ -251,7 +251,7 @@ Decision 1 ties the window to today's date. So the committed sample, which ends 
 
 Parsing, checking and calculating run in the browser's main thread, and are expected to take well under 300 ms for 5,000 rows.
 
-`npm run test:perf` runs `e2e/performance.local.spec.ts`. It generates a 5,000-issue file, uploads it in Playwright, and requires all four cards to be visible within 2,000 ms. CI does not run this file: the Playwright config excludes `*.local.spec.ts` unless `test:perf` is used. The result is recorded when the acceptance criteria are reviewed (task 23).
+`npm run test:perf` runs `e2e/performance.local.spec.ts`. It generates a 5,000-issue file, uploads it in Playwright, and requires all four cards to be visible within 2,000 ms. CI does not run this file: the Playwright config excludes `*.local.spec.ts` unless `test:perf` is used. The result is recorded when the acceptance criteria are reviewed (task 24).
 
 ## 10. Tests
 
@@ -288,6 +288,14 @@ The smoke test sets the browser clock to 27 Nov 2026 (Playwright `page.clock`) s
   6. `npx playwright install --with-deps chromium`, then `npm run test:smoke` against `vite preview`
   7. If the job fails, the Playwright report is uploaded as an artifact
 - **Blocking merges to main** is a repository setting, not something the workflow can do. After the first green run, the repository owner turns on: "Require a pull request before merging", plus "Require status checks to pass" with `ci` selected. The README will describe the steps.
+
+### 11.1 Publishing on GitHub Pages (added 27 Nov 2026)
+
+- **Link**: https://tomomandickg-droid.github.io/delivery-metrics-tool/
+- **Relative paths**: Vite builds with `base: './'`, so every asset path is relative. The same build works locally at `/` and on Pages under `/delivery-metrics-tool/`. "Load sample data" fetches `./sample-data/jira-sample.csv` from the same place.
+- **Workflow** (`.github/workflows/pages.yml`): runs on every push to `main`, plus a manual run. It does `npm ci`, the unit tests and the build, then uploads `dist/` with `actions/upload-pages-artifact` and deploys with `actions/deploy-pages`. Main only receives code through pull requests with a green `ci` check, so whatever is deployed has already passed every check.
+- **Repository setting**: Pages, with **GitHub Actions** as the source.
+- **Privacy**: unchanged. The page is static, and an uploaded CSV is read in the visitor's browser and never sent anywhere.
 
 ## 12. Out of scope
 
