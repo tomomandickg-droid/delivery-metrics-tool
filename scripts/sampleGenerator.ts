@@ -5,7 +5,8 @@
  * and it uses only a seeded integer random generator and weighted tables. Math.log/exp/cos
  * are avoided on purpose, because their last digits are not guaranteed across platforms.
  */
-import { addDays, fromYmd, toYmd } from '../src/domain/dates';
+import { addDays, toYmd } from '../src/domain/dates';
+import { SAMPLE_EXPORT_DATE } from '../src/domain/shiftSample';
 import type { CalendarDate } from '../src/domain/types';
 
 export interface SampleOptions {
@@ -15,9 +16,8 @@ export interface SampleOptions {
   readonly seed?: number;
 }
 
-/** The sample's export date: Friday 27 Nov 2026. */
-export const SAMPLE_EXPORT_DATE_ISO = '2026-11-27';
-const EXPORT_DATE = fromYmd(2026, 11, 27) as CalendarDate;
+/** The sample's export date (Friday 27 Nov 2026), shared with the "Load sample data" shift. */
+const EXPORT_DATE = SAMPLE_EXPORT_DATE;
 const HISTORY_DAYS = 140; // 20 weeks of created dates before the export date
 const DEFAULT_COUNT = 300;
 const DEFAULT_SEED = 20261127;

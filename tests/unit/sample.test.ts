@@ -1,12 +1,13 @@
 // @vitest-environment node
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { generateSampleCsv, SAMPLE_EXPORT_DATE_ISO } from '../../scripts/sampleGenerator';
+import { generateSampleCsv } from '../../scripts/sampleGenerator';
 import { computeDashboard } from '../../src/domain/computeDashboard';
 import { formatIso, inclusiveDays } from '../../src/domain/dates';
 import { cycleTime } from '../../src/domain/metrics/cycleTime';
 import { leadTime } from '../../src/domain/metrics/leadTime';
 import { parseCsv } from '../../src/domain/parseCsv';
+import { SAMPLE_EXPORT_DATE } from '../../src/domain/shiftSample';
 import { toIssues } from '../../src/domain/toIssues';
 import { isInWindow, reportingWindow } from '../../src/domain/window';
 import { d } from './helpers';
@@ -19,7 +20,7 @@ const committed = readFileSync(
 const parsed = parseCsv(committed);
 if (!parsed.ok) throw new Error(`Sample did not parse: ${parsed.message}`);
 const { issues, skipped, startedBeforeCreated } = toIssues(parsed.rows);
-const TODAY = d(SAMPLE_EXPORT_DATE_ISO);
+const TODAY = SAMPLE_EXPORT_DATE;
 const window = reportingWindow(TODAY);
 
 const byKey = (key: string) => {
