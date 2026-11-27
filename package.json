@@ -21,6 +21,7 @@
     "generate:sample": "tsx scripts/generate-sample.ts"
   },
   "dependencies": {
+    "papaparse": "5.7.1",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },
@@ -31,6 +32,7 @@
     "@testing-library/react": "16.3.3",
     "@testing-library/user-event": "14.6.13",
     "@types/node": "26.6.11",
+    "@types/papaparse": "5.5.2",
     "@types/react": "18.3.32",
     "@types/react-dom": "18.3.7",
     "@vitejs/plugin-react": "6.3.0",
